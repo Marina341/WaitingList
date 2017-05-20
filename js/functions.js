@@ -33,7 +33,7 @@ $("#menu-double").on('click', function () {
       x.style.display = 'none';
   } else {
       x.style.display = 'inline-block';
-      $("#maps-box").animate({width: '600px'}, 500);
+      $("#maps-box").animate({width: '550px'}, 500);
   }
 });
 
@@ -44,13 +44,7 @@ $(function() {
   });
 });
 
-$(function() {
-  $('#selector1').change(function(){
-    $('.ocijena').slideUp("slow");
-    $('#' + $(this).val()).slideDown("slow");
-  });
+$( "#myform" ).submit(function( event ) {
+  alert( "Vaša ocjena je unesena." );
+  event.preventDefault();
 });
-
-function hvala() {
-    alert("Hvala!");
-}
