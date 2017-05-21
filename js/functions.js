@@ -39,6 +39,7 @@ $("#menu-double").on('click', function () {
 
 $(function() {
   $('#selector').change(function(){
+      $('.ocjena').slideUp("slow");
     $('.adresa').slideUp("slow");
     $('#' + $(this).val()).slideDown("slow");
   });
