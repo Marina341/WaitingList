@@ -131,7 +131,7 @@ background: #4d001f;
   left: 200px;
 }
 .bodytwo{
-  background-image: url("two.jpg"); /* !important; */
+  background-color: #333333;
   background-size: cover;
   z-index: -9;
   margin: 0;
