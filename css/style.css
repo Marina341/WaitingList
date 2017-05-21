@@ -55,7 +55,7 @@ figure.effect-oscar:hover h2 {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-#wrapper.toogled figure.effect-oscar h2 {
+#wrapper.toggled figure.effect-oscar h2 {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
