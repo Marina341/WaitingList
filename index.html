@@ -72,7 +72,7 @@
                             <h4 class="modal-title">Ocijenite ustanovu</h4>
                           </div>
                           <div class="modal-body">
-                             Ocijenivajući ustanovu u kojoj ste imali pregled pridonesite kvaliteti pretraživanja.
+                             Ocjenjujući ustanovu u kojoj ste imali pregled pridonesite kvaliteti pretraživanja.
                             <div>
 							Spol:
                               <div class="display"><input type="text"><br/></div>
@@ -82,14 +82,16 @@
                               <div class="display"><input type="text"><br/></div>
                               Odaberite zahvat:
                               <div class="display"><input type="text"><br/></div>
+			      <form id="myform">
                               Ocijenite ukupno zadovoljstvo (1-5):<span class="star">*</span>
-                              <div class="display"><input type="text"><br/></div>
+                              <div class="display"><input type="text" required><br/></div>
                               Ocijenite profesionalnost osoblja (1-5):<span class="star">*</span>
-                              <div class="display"><input type="text"><br/></div>
+                              <div class="display"><input type="text" required><br/></div>
 							  Ocijenite kvalitetu prostora (1-5):<span class="star">*</span>
-                              <div class="display"><input type="text"><br/></div>
-							  <button onclick="hvala()"> Ocijeni </button>
-                            </div>
+                              <div class="display"><input type="text" required><br/></div>
+							  <button type = "submit" id= "batn"> Ocijeni </button>
+                              </form>
+			      </div>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
