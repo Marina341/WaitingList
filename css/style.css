@@ -55,8 +55,16 @@ figure.effect-oscar:hover h2 {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+#wrapper.toogled figure.effect-oscar h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 
 figure.effect-oscar:hover figcaption::before, figure.effect-oscar:hover div {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+#wrapper.toggled figure.effect-oscar figcaption::before, #wrapper.toggled figure.effect-oscar div {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
@@ -64,6 +72,10 @@ figure.effect-oscar:hover figcaption::before, figure.effect-oscar:hover div {
 figure.effect-oscar:hover figcaption {
   background-color: rgba(58, 52, 42, 0);
 }
+#wrapper.toggled figure.effect-oscar figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+
 .icon {
   position: absolute;
   left: 700 !important;
