@@ -32,6 +32,8 @@
   .rating-star:hover, .rating-star:focus,
   .rating-star:hover ~ .rating-star, .rating-star:focus ~ .rating-star {
           background-position: 0 0;
+	  cursor: hand;
+	  cursor: pointer;
       }
 
 .fld_about:hover {
