@@ -140,8 +140,7 @@
   width: 550px;
   height: 450px;
   float: right;
-  background-image: url("../mape_primjer.jpg");
-  background-repeat: no-repeat;
+  background-color: yellow;
   border: 15px solid #4400cc;
 }
 
