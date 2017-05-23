@@ -49,3 +49,9 @@ $( "#myform" ).submit(function( event ) {
   alert( "Vaša ocjena je unesena." );
   event.preventDefault();
 });
+
+$( ".rating-star" ).on("click", function () {
+  $(this).css("background-position", "0 0");
+  $(this).nextAll().css("background-position", "0 0");
+
+});
