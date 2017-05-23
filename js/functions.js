@@ -56,17 +56,19 @@ $( ".rating-star" ).on("click", function () {
   $(this).prevAll().css("background-position", "0 -16px");
 });
 
+var map;
 function myMap() {
     var mapOptions = {
         center: new google.maps.LatLng(51.5, -0.12),
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.HYBRID
     }
-var map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
+  map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
 }
-google.maps.event.addListener(map, "idle", function() {
-     google.maps.event.trigger(map, 'resize');
+google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, "resize", function() {
+var center = map.getCenter();
+google.maps.event.trigger(map, "resize");
+map.setCenter(center); 
 });
 
-map_array[Next].setZoom( map.getZoom() - 1 );
-map_array[Next].setZoom( map.getZoom() + 1 );
