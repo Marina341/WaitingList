@@ -29,8 +29,8 @@
           background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
       }
 	
-  .rating-star:hover, .rating-star:active,
-  .rating-star:hover ~ .rating-star, .rating-star:active ~ .rating-star {
+  .rating-star:hover, .rating-star:focus,
+  .rating-star:hover ~ .rating-star, .rating-star:focus ~ .rating-star {
           background-position: 0 0;
       }
 
