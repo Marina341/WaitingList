@@ -53,5 +53,5 @@ $( "#myform" ).submit(function( event ) {
 $( ".rating-star" ).on("click", function () {
   $(this).css("background-position", "0 0");
   $(this).nextAll().css("background-position", "0 0");
-
+  $(this).prevAll().css("background-position", "0 -16px");
 });
