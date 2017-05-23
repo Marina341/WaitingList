@@ -63,5 +63,9 @@ function myMap() {
         mapTypeId: google.maps.MapTypeId.HYBRID
     }
 var map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
+  // listen for the window resize event & trigger Google Maps to update too
+$(window).resize(function() {
+// (the 'map' here is the result of the created 'var map = ...' above)
+google.maps.event.trigger(map, "resize");
+});
 }
-google.maps.event.addDomListener(window, 'load', myMap);
