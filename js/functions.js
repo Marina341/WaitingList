@@ -64,8 +64,9 @@ function myMap() {
     }
 var map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
 }
-$(document).ready(function() {
-    google.maps.event.addListener(map, "idle", function(){
-        google.maps.event.trigger(map, 'resize'); 
-    });
-}); 
+google.maps.event.addListener(map, "idle", function() {
+     google.maps.event.trigger(map, 'resize');
+});
+
+map_array[Next].setZoom( map.getZoom() - 1 );
+map_array[Next].setZoom( map.getZoom() + 1 );
