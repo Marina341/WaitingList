@@ -26,6 +26,16 @@ $("#menu-toggle2").on('click', kliki);
 $("#menu-toggle2").on('click', klikon);
 $("#menu-double").on('click', dabli);
 
+var map;
+function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.12),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+  map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
+};
+
 $("#menu-double").on('click', function () {
   var x = document.getElementById('maps-box');
   if (x.style.display === 'inline-block') {
@@ -34,6 +44,7 @@ $("#menu-double").on('click', function () {
   } else {
       x.style.display = 'inline-block';
       $("#maps-box").animate({width: '550px'}, 500);
+      google.maps.event.trigger(map, 'resize');
   }
 });
 
@@ -56,14 +67,4 @@ $( ".rating-star" ).on("click", function () {
   $(this).prevAll().css("background-position", "0 -16px");
 });
 
-var map;
-function myMap() {
-    var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.12),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    }
-  map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
-}
-google.maps.event.trigger(map, 'resize');
 
