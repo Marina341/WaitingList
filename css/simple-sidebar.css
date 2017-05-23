@@ -136,6 +136,7 @@
 }
 
 #maps-box {
+  display: none;
   width: 550px;
   height: 450px;
   float: right;
