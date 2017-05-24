@@ -41,12 +41,13 @@ $("#menu-double").on('click', function () {
   var x = document.getElementById('maps-box');
   if (x.style.display === 'inline-block') {
       $("#maps-box").animate({width: 0}, 500);
-      google.maps.event.trigger(map, 'resize');
       x.style.display = 'none';
   } else {
       x.style.display = 'inline-block';
       $("#maps-box").animate({width: '550px'}, 500);
+      var center = map.getCenter();
       google.maps.event.trigger(map, 'resize');
+      map.setCenter(center);
   }
 });
 
