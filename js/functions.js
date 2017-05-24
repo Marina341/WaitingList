@@ -29,7 +29,7 @@ $("#menu-double").on('click', dabli);
 var map;
 function myMap() {
     var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.12),
+        center: {lat: -21.2035214, lng: -159.805175},
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.HYBRID
     }
