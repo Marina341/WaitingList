@@ -26,22 +26,15 @@ $("#menu-toggle2").on('click', kliki);
 $("#menu-toggle2").on('click', klikon);
 $("#menu-double").on('click', dabli);
 
-function displayMap() {
-            document.getElementById('maps-box').style.display="inline-block";
-            initialize();
-        }
- function initialize() {
-          // create the map
-
-        var myOptions = {
-            zoom: 14,
-            center: new google.maps.LatLng(0.0, 0.0),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
-            map = new google.maps.Map(document.getElementById("maps-box"),
-                                        myOptions);
-
-         }
+var map;
+function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.12),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+ map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
+}
 
 
 $("#menu-double").on('click', function () {
