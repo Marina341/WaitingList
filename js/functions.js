@@ -34,11 +34,11 @@ function myMap() {
         mapTypeId: google.maps.MapTypeId.HYBRID
     }
   map = new google.maps.Map(document.getElementById("maps-box"), mapOptions);
+};
     google.maps.event.addListenerOnce(map, 'idle', function() {
        google.maps.event.trigger(map, 'resize');
        map.setCenter(latLng);
     });
-};
 
 $("#menu-double").on('click', function () {
   var x = document.getElementById('maps-box');
