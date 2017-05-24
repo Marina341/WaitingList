@@ -144,6 +144,10 @@
   border: 15px solid #4400cc;
 }
 
+#maps-box img {
+  max-width: none;
+}
+
 @media(min-width:200px) {
     #wrapper {
         padding-right: 0;
