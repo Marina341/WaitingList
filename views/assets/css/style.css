@@ -1,0 +1,196 @@
+﻿.bodyOne{
+    margin: 0;
+    background-image:url("../light3.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+.star {
+   color: red;
+}
+
+.rating {
+          overflow: hidden;
+          display: inline-block;
+      }
+ .rating-input {
+          position: absolute;
+          left: 0;
+          top: -100px;
+      }
+  .rating-star {        
+          display: block;
+          float: right;        
+          width: 16px;
+          height: 16px;
+          background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
+      }
+	
+  .rating-star:hover, .rating-star:focus,
+  .rating-star:hover ~ .rating-star, .rating-star:focus ~ .rating-star {
+          background-position: 0 0;
+	  cursor: hand;
+	  cursor: pointer;
+      }
+
+.fld_about:hover {
+display: block;
+}
+
+#text {
+  padding-top: 50px;
+  color: black;
+  opacity: 1 !important;
+}
+
+.h1One {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+figure.effect-oscar figcaption::before {
+  position: absolute;
+  top: 35%;
+  right: 17%;
+  bottom: 27%;
+  left: 17%;
+  border: 1px solid #fff;
+  background-color: rgba(20, 50, 42, 0.5);
+  content: '';
+}
+
+figure.effect-oscar h2 {
+  margin: 5% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+figure.effect-oscar figcaption::before, figure.effect-oscar div {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+figure.effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+#wrapper.toggled figure.effect-oscar h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+figure.effect-oscar:hover figcaption::before, figure.effect-oscar:hover div {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+#wrapper.toggled figure.effect-oscar figcaption::before, #wrapper.toggled figure.effect-oscar div {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+#wrapper.toggled figure.effect-oscar figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+
+.icon {
+  position: absolute;
+  left: 700 !important;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+}
+
+nav:hover {
+  background: rgba(0, 10, 10, 0.5);
+}
+nav ol {
+  float: right;
+  margin-right: 30px;
+  list-style: none;
+}
+li {
+  display: inline-block;
+  margin: 5px;
+  color: #ffffff;
+}
+li:hover {
+  color: #ffffff;
+}
+li:active {
+  color: #ff1a1a;
+}
+
+
+::-webkit-scrollbar {
+ width: 12px;
+ height: 12px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid #4d001f;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #4d001f;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #4d001f;
+}
+
+.box {
+  border-bottom: 1px solid #4d001f;
+  height: 240px;
+  width: 450px;
+  position: center;
+  margin: 25px;
+  -webkit-transition: width 2s;
+  transition: width 2s;
+}
+
+.pTwo {
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 200px;
+}
+.bodytwo{
+  background-color: #333333;
+  z-index: -9;
+  margin: 0;
+}
+table {
+  position: absolute;
+  display: inline-block;
+  top: 50px;
+  width: 200px;
+  text-align: right;
+}
+th {
+    height: 5px;
+    padding-left: 15px;
+}
+
+.adresa {
+  display: none;
+}
+.ocjena {
+  display: none;
+}
+
+.bojaikone{
+	color: white;
+}
