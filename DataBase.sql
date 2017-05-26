@@ -18,7 +18,8 @@
 --
 -- Table structure for table `kzn`
 --
-
+CREATE DATABASE IF NOT EXISTS mydb;
+USE mydb;
 DROP TABLE IF EXISTS `kzn`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
