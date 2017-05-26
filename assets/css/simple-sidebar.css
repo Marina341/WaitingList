@@ -46,7 +46,7 @@
     right: 62.5%;
     width: 0;
     height: 100%;
-    margin-right: 62.5%;
+    margin-right: -62.5%;
     overflow-y: hidden;
     overflow-x: auto;
     background-color: #262626;
