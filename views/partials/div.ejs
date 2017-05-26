@@ -1,13 +1,13 @@
 			<% for(var i=0;i<scrapped.length;i++) {%>
         <div class="box" >
 
-            <tr> <th>Zdravstvena ustanova: </th> <th><%= scrapped[i].NAZIV %></th></tr> <br/><tr> <th>Zahvat: </th> <th><%= scrapped[i].IME %></th></tr> <br/> <tr>
-            <th>Adresa: </th> <th><%= scrapped[i].KONTAKT_ADRESA %></th> </tr><br/> <tr> <th>e-mail: </th> <th><%= scrapped[i].KONTAKT_EMAIL%></th>
-            </tr><br/><tr><th>Telefon: </th><th><%= scrapped[i].KONTAKT_TELEFON %></th></tr><br/><tr><th>Telefaks: </th>
-            <th><%= scrapped[i].KONTAKT_FAX %></th></tr><br/><tr><th>Prvi slobodni termin: </th><th><%= scrapped[i].SLOBODNI_TERMIN %></th>
-            </tr><br/><tr><th>Broj dana cekanja: </th><th>null</th></tr><br/><tr>
-            <th>Ukupna ocjena ustanove: </th><th>null</th><br/></tr> 
-
+            <tr> <th><%= scrapped[i].NAZIV %></th></tr> <br/>
+			<tr> <th>Zahvat: </th> <th><%= scrapped[i].IME %></th></tr> <br/> 
+			<tr><th>Adresa: </th> <th><%= scrapped[i].KONTAKT_ADRESA %></th> </tr><br/>
+			<tr> <th>e-mail: </th> <th><%= scrapped[i].KONTAKT_EMAIL%></th></tr><br/>
+			<tr><th>Telefon: </th><th><%= scrapped[i].KONTAKT_TELEFON %></th></tr><br/>
+			<tr><th>Prvi slobodni termin: </th><th><%= scrapped[i].SLOBODNI_TERMIN %></th></tr><br/>
+			<tr><th>Ukupna ocjena ustanove: </th><th>null</th><br/></tr> 
 
 
 </div>
