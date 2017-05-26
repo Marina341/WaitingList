@@ -51,6 +51,7 @@
                     <div class="bodyOne">
                         <nav>
                           <ol>
+						   <li type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalStanje"> Pregled stanja</li>
                             <li type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalAbout"> O nama</li>
                            <li type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ocijeni</li>
                           </ol>
@@ -177,6 +178,30 @@
                     </div>
                     </div>
                     </div>
+				<div id="myModalStanje" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Pregled stanja</h4>
+                      </div>
+                      <div class="modal-body">
+                        Odaberite kriterij pregleda stanja:
+				  <div class="display">
+                                    <select id="selector_stanja" name="item2" type ="text">
+                                           <option value="7">Pojedini zahvat</option>
+                                           <option value="8">Pojedine grupe zahvata</option>
+                                           <option value="9">Za pojedinu bolnicu</option>
+                                    </select>
+                                  </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
+                      </div>
+                    </div>
+                    </div>
+                </div>
                         <div id="main">
                           <div ID="text">
                             <h1 class="h1One"> <br/> <strong> Lista čekanja </strong></h1> <br/>
