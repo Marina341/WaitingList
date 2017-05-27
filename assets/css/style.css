@@ -1,13 +1,25 @@
 ﻿.bodyOne{
     margin: 0;
-    background-image:url("../light3.jpg");
-    background-size: cover;
     height: 100%;
     width: 100%;
-    background-repeat: no-repeat;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
+    position: relative;
 }
+.bodyOne:after {
+    background-image:url("../dnaaa.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.2;
+    z-index: -1;
+    content: "";
+}
+
 .star {
    color: red;
 }
@@ -21,14 +33,14 @@
           left: 0;
           top: -100px;
       }
-  .rating-star {        
+  .rating-star {
           display: block;
-          float: right;        
+          float: right;
           width: 16px;
           height: 16px;
           background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
       }
-	
+
   .rating-star:hover, .rating-star:focus,
   .rating-star:hover ~ .rating-star, .rating-star:focus ~ .rating-star {
           background-position: 0 0;
@@ -138,21 +150,21 @@ li:active {
 }
 
 ::-webkit-scrollbar-track {
-border: 1px solid #4d001f;
+border: 1px solid #33a6cc;
 border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-background: #4d001f;
+background: #33a6cc;
 border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-background: #4d001f;
+background: #33a6cc;
 }
 
 .box {
-  border-bottom: 1px solid #4d001f;
+  border-bottom: 5px solid #33a6cc;
   height: 240px;
   width: 450px;
   position: center;
