@@ -9,7 +9,7 @@ var connection = mysql.createPool({
   connectionLimit : 100, // Broju korisnika koji se odjednom mogu spojiti, ostali idu u red za cekanje - queue
   host     : 'localhost',
   user     : 'root',
-  password : 'rapstyle23',
+  password : 'trequs65',
   database : 'mydb',
   debug    : false
 });
@@ -62,5 +62,6 @@ var sendQuery = function(query, callback) {
 //-----------------------------------------------------------------------------
 // Module.exports aktiviraju da se funkcija moze includati
 module.exports = {
-  sendQuery: sendQuery
+  sendQuery: sendQuery,
+  connection: connection
 }

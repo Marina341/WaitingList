@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Lista čekanja</title>
+    <title>Liste čekanja</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -15,7 +15,66 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript">
 
+        $('input.typeahead').typeahead({
+            name: 'zahvati',
+            remote: 'http://localhost:8080/search?key=%QUERY',
+            limit: 10
+        });
+
+    </script>
+    <style type="text/css">
+    .bs-example{
+    	font-family: sans-serif;
+    	position: relative;
+    	margin: 50px;
+    }
+    .typeahead, .tt-query, .tt-hint {
+    	border: 2px solid #CCCCCC;
+    	border-radius: 8px;
+    	font-size: 14px;
+    	height: 30px;
+    	line-height: 30px;
+    	outline: medium none;
+    	padding: 2px 12px;
+    	width: 296px;
+    }
+    .typeahead {
+    	background-color: #FFFFFF;
+    }
+    .typeahead:focus {
+    	border: 2px solid #0097CF;
+    }
+    .tt-query {
+    	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    }
+    .tt-hint {
+    	color: #999999;
+    }
+    .tt-dropdown-menu {
+    	background-color: #FFFFFF;
+    	border: 1px solid rgba(0, 0, 0, 0.2);
+    	border-radius: 8px;
+    	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    	margin-top: 12px;
+    	padding: 8px 0;
+    	width: 422px;
+    }
+    .tt-suggestion {
+    	font-size: 14px;
+    	line-height: 24px;
+    	padding: 3px 20px;
+    }
+    .tt-suggestion.tt-is-under-cursor {
+    	background-color: #0097CF;
+    	color: #FFFFFF;
+    }
+    .tt-suggestion p {
+    	margin: 0;
+    }
+    </style>
 </head>
 
 <body>
@@ -40,8 +99,8 @@
               <% include partials/div.ejs %>
               </div>
             </div>
-	    <div id = "maps-box">
-	    </div>
+        	    <div id = "maps-box">
+        	    </div>
           </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -163,7 +222,7 @@
                         <h4 class="modal-title">O nama</h4>
                       </div>
                       <div class="modal-body">
-                        Lista čekanja je javno dostupan web portal za pretraživanje i pregledavanje lista čekanja na
+                        Liste čekanja je javno dostupan web portal za pretraživanje i pregledavanje lista čekanja na
 						pretrage u bolnicama. Omogućava Vam jedinstveno i transparentno mjesto za pretraživanje i
 						pregledavanje lista čekanja kako biste lakše odradili potrebnu pretragu.
 						Kako biste pronašli optimalnu bolnicu odaberite željni način pretraživanja:
@@ -204,7 +263,7 @@
                 </div>
                         <div id="main">
                           <div ID="text">
-                            <h1 class="h1One"> <br/> <strong> Lista čekanja </strong></h1> <br/>
+                            <h1 class="h1One"> <br/> <strong> Liste čekanja </strong></h1> <br/>
                             <h4> Ovdje pretražite optimalnu bolnicu za traženu pretragu. </h4>
                           </div>
                           <div class="grow">
@@ -212,13 +271,13 @@
                               <figcaption>
                                 <h2>Pretraživanje</h2>
                                 <div>
-                                  Odaberite pretragu:
+                                  Odaberite zahvat:
                                   <form method="POST" >
-                                   <input  type ="text" name="item" placeholder="Enter Name" required /></select>
+                                   <input  type ="text" name="item" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Zahvat..." required></select>
                                    <br/>
                                   Odaberite način pretraživanja:
 				  <div class="display">
-                                    <select id="selector" name="item1" type ="text">
+                                    <select id="selector" name="item1" class="typeahead tt-query" type ="text">
                                            <option value="1">PRVI SLOBODAN TERMIN</option>
                                            <option value="2">NAJBLIŽA USTANOVA</option>
                                            <option value="3">NAJBOLJE OCIJENJENA USTANOVA</option>
@@ -226,11 +285,11 @@
                                   </div>
                                   <div id="2" class="adresa">
                                     Unesite svoju adresu: <br/>
-                                    <input type="text">
+                                    <input type="text" class="typeahead tt-query">
                                   </div>
                                   <div id="3" class="ocjena">
                                     Odaberite kriterij: <br/>
-                                    <select id="selector1">
+                                    <select id="selector1" class="typeahead tt-query">
                                            <option value="4" selected>UKUPNO ZADOVOLJSTVO</option>
                                            <option value="5">PROFESIONALNOST OSOBLJA</option>
                                            <option value="6">KVALITETA PROSTORA</option>

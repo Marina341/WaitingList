@@ -68,11 +68,3 @@ $( ".rating-star" ).on("click", function () {
   $(this).nextAll().css("background-position", "0 0");
   $(this).prevAll().css("background-position", "0 -16px");
 });
-
-$(document).ready(function(){
-    $('input.item').typeahead({
-        name: 'zahvati',
-        remote: 'http://localhost:8080/search?key=%QUERY',
-        limit: 10
-    });
-});
