@@ -1,3 +1,4 @@
+
 function kliki (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
@@ -6,10 +7,10 @@ function dabli (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("doubled");
     $("#icon").toggleClass("fa fa-arrow-left fa fa-arrow-right");
-    if ( $("#maps-link").text() == "Zatvori" ) {
-        title = "Prikaži na karti";
+    if ( $("#maps-link").text() == "ZATVORI" ) {
+        title = "PRIKAŽI NA KARTI";
     } else {
-        title = "Zatvori";
+        title = "ZATVORI";
         }
     $("#maps-link").text( title );
 };

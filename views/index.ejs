@@ -3,10 +3,10 @@
 
 <head>
     <title>Liste čekanja</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	  <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|PT+Sans+Narrow" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -15,10 +15,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script type="text/javascript">
 
-        $('input.typeahead').typeahead({
+        $('#typeahead').typeahead({
             name: 'zahvati',
             remote: 'http://localhost:8080/search?key=%QUERY',
             limit: 10
@@ -39,7 +41,9 @@
     	line-height: 30px;
     	outline: medium none;
     	padding: 2px 12px;
-    	width: 296px;
+    	width: 250px;
+      color: #33a6cc;
+      font-weight: bold;
     }
     .typeahead {
     	background-color: #FFFFFF;
@@ -84,20 +88,18 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
           <div id="arrows-1">
-              <a id="menu-double">
+              <a id="menu-double" style="width:150px">
                   <i id="icon" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
-                  <p id="maps-link" style="display:inline-block;"> Prikaži na karti </p>
+                  <p id="maps-link" style="display:inline-block;"> PRIKAŽI NA KARTI </p>
               </a>
-              <a id="menu-toggle2">
+              <a id="menu-toggle2" style="width:150px">
                   <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
-                  <p style="display:inline-block;"> Početna </p>
+                  <p style="display:inline-block"> POČETNA </p>
               </a>
           </div>
           <div id = "sidebar-content-wrapper">
             <div id="scroll-box">
-              <div >
               <% include partials/div.ejs %>
-              </div>
             </div>
         	    <div id = "maps-box">
         	    </div>
@@ -223,13 +225,12 @@
                       </div>
                       <div class="modal-body">
                         Liste čekanja je javno dostupan web portal za pretraživanje i pregledavanje lista čekanja na
-						pretrage u bolnicama. Omogućava Vam jedinstveno i transparentno mjesto za pretraživanje i
-						pregledavanje lista čekanja kako biste lakše odradili potrebnu pretragu.
+						zahvate u bolnicama. Omogućava Vam jedinstveno i transparentno mjesto za pretraživanje i
+						pregledavanje lista čekanja kako biste lakše odradili potreban zahvat.
 						Kako biste pronašli optimalnu bolnicu odaberite željni način pretraživanja:
 						prema najbržem slobodnom terminu, najbližoj ustanovi, ili najbolje ocijenjenoj ustanovi.
-						Molim Vas da nakon obavljene pretrage na ovoj stranici anonimno ocijenite zadovoljstvo usluge i tako
+						Molim Vas da nakon obavljenog zahvata na ovoj stranici anonimno ocijenite zadovoljstvo usluge i tako
 						pridonesete kvaliteti pretraživanja.
-
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
@@ -263,44 +264,35 @@
                 </div>
                         <div id="main">
                           <div ID="text">
-                            <h1 class="h1One"> <br/> <strong> Liste čekanja </strong></h1> <br/>
-                            <h4> Ovdje pretražite optimalnu bolnicu za traženu pretragu. </h4>
+                            <h1 class="h1One"> <br/>  LISTE ČEKANJA </h1> <br/>
+                            <h4> Ovdje pretražite optimalnu bolnicu za traženi zahvat. </h4>
                           </div>
-                          <div class="grow">
-                            <figure class="effect-oscar">
                               <figcaption>
-                                <h2>Pretraživanje</h2>
-                                <div>
-                                  Odaberite zahvat:
-                                  <form method="POST" >
-                                   <input  type ="text" name="item" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Zahvat..." required></select>
-                                   <br/>
-                                  Odaberite način pretraživanja:
-				  <div class="display">
-                                    <select id="selector" name="item1" class="typeahead tt-query" type ="text">
+                                <form id ="forma1" method="post" >
+                                  <p> ODABERITE ZAHVAT: </p>
+                                    <input  class = "typeahead tt query" autocomplete = "off" type ="text" name="item" required></select>
+                                  <br/>
+                                  <p> ODABERITE NAČIN PRETRAŽIVANJA: </p>
+                                    <select id="selector" class = "typeahead tt query" name="item1" type ="text">
                                            <option value="1">PRVI SLOBODAN TERMIN</option>
                                            <option value="2">NAJBLIŽA USTANOVA</option>
                                            <option value="3">NAJBOLJE OCIJENJENA USTANOVA</option>
                                     </select>
-                                  </div>
-                                  <div id="2" class="adresa">
-                                    Unesite svoju adresu: <br/>
-                                    <input type="text" class="typeahead tt-query">
-                                  </div>
-                                  <div id="3" class="ocjena">
-                                    Odaberite kriterij: <br/>
-                                    <select id="selector1" class="typeahead tt-query">
-                                           <option value="4" selected>UKUPNO ZADOVOLJSTVO</option>
-                                           <option value="5">PROFESIONALNOST OSOBLJA</option>
-                                           <option value="6">KVALITETA PROSTORA</option>
-                                    </select>
-                                  </div>
-                                  <button value="submit" id="menu-toggle1"> <i class="fa fa-search" aria-hidden="true"></i></button>
-                                  </form>
-                                </div>
+                                    <div id="2" class="adresa">
+                                      <p> UNESITE SVOJU ADRESU: </p>
+                                      <input class = "typeahead tt query" type="text" required>
+                                    </div>
+                                    <div id="3" class="ocjena">
+                                    <p>  ODABERITE KRITERIJ: </p>
+                                      <select class = "typeahead tt query" id="selector1">
+                                             <option value="4" selected>UKUPNO ZADOVOLJSTVO</option>
+                                             <option value="5">PROFESIONALNOST OSOBLJA</option>
+                                             <option value="6">KVALITETA PROSTORA</option>
+                                      </select>
+                                    </div>
+                                  <button value="submit" id="menu-toggle1" style="display: block; margin: 0 auto"> <i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
                               </figcaption>
-                            </figure>
-                          </div>
                         </div>
                     </div>
         </div>
@@ -320,6 +312,9 @@
 
     <!-- Google Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL4gJYhG0_-XBNRN3XQ7qwZG5Yr2ZYIsM&callback=myMap"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 </body>
 

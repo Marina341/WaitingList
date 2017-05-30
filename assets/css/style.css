@@ -2,7 +2,8 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+
     text-align: center;
     position: relative;
 }
@@ -15,7 +16,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    opacity: 0.2;
+    opacity: 0.18;
     z-index: -1;
     content: "";
 }
@@ -59,58 +60,47 @@ display: block;
 }
 
 .h1One {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  color: #33a6cc;
+  font-size: 34px;
+  font-weight: bolder;
 }
 
-figure.effect-oscar figcaption::before {
+#main h4 {
+  color: #33a6cc;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ figcaption::before {
+   display:block;
   position: absolute;
-  top: 35%;
-  right: 17%;
-  bottom: 17%;
-  left: 17%;
+  margin-top: -40px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #fff;
   background-color: rgba(20, 50, 42, 0.5);
   content: '';
+  z-index: -1;
 }
 
-figure.effect-oscar h2 {
-  margin: 5% 0 10px 0;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
+figcaption {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 330px;
+  margin: 0 auto;
+  margin-top: 70px;
 }
 
-figure.effect-oscar figcaption::before, figure.effect-oscar div {
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(0);
-  transform: scale(0);
+figcaption p {
+  font-weight:600;
+  color: white;
+  font-size: 17px;
 }
 
-figure.effect-oscar:hover h2 {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-#wrapper.toggled figure.effect-oscar h2 {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-figure.effect-oscar:hover figcaption::before, figure.effect-oscar:hover div {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-#wrapper.toggled figure.effect-oscar figcaption::before, #wrapper.toggled figure.effect-oscar div {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-figure.effect-oscar:hover figcaption {
-  background-color: rgba(58, 52, 42, 0);
-}
-#wrapper.toggled figure.effect-oscar figcaption {
-  background-color: rgba(58, 52, 42, 0);
+figcaption input, figcaption select {
+  margin-bottom: 15px;
 }
 
 .icon {
@@ -164,13 +154,20 @@ background: #33a6cc;
 }
 
 .box {
-  border-bottom: 5px solid #33a6cc;
-  height: 240px;
-  width: 450px;
-  position: center;
-  margin: 25px;
+  border: 5px solid #33a6cc;
+  border-radius: 10px;
+/*  font: 16px sans-serif; */
+  height: 40%;
+  width: 100%;
   -webkit-transition: width 2s;
   transition: width 2s;
+  margin-bottom: 15px;
+  z-index: 1;
+  opacity: 0.7;
+  background-color: #f8f8ff;
+}
+.box:after {
+  z-index: -15;
 }
 
 .pTwo {

@@ -101,8 +101,9 @@
 
 #arrows-1 {
   padding: 20px;
-  width: 550px;
+  width: 600px;
   height: 40px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #menu-double, #menu-toggle2 {
@@ -114,28 +115,20 @@
 
 #scroll-box {
     display: inline-block;
-    width: 550px;
-    height: 450px;
+    width: 750px;
+    height: 500px;
     float: left;
-    padding: 5px;
-    font: 16px sans-serif;
-    color: #003d66;
-    font-weight: bold;
+    padding: 15px;
     overflow-y: scroll;
-    z-index: 1;
-    opacity: 0.7;
-    background-color: #f8f8ff;
+    overflow-x: auto;
 }
 
-#scroll-box:after{
-    z-index: -15;
-}
 
 #maps-box {
   margin-right: -700px;
   visibility: visible;
-  width: 550px;
-  height: 450px;
+  width: 450px;
+  height: 500px;
   float: right;
   background-color: yellow;
 }
@@ -190,4 +183,45 @@
 	#menu-toggle {
     margin: 0 auto;
     display: block;
+}
+
+.ustanova {
+  display: inline-block;
+  float: left;
+  width: 55%;
+  height: 100%;
+  padding: 10px;
+}
+
+#naziv-ustanove {
+	font-size: 20px;
+  font-weight: bold;
+  color: #002533;
+  height: 20%;
+  margin-bottom: 20px;
+}
+
+#ustanova-info {
+  font-size: 14px;
+  color: green;
+  height: 80%;
+}
+#ustanova-info p {
+  font-size: 12px;
+  color: #33a6cc;
+  font-weight: bold;
+}
+
+#rejting-prikaz {
+  float: right;
+  width: 35%;
+  height: 100%;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#termin {
+  height: 40%;
+  text-align: center;
+  padding: 25px 15px 15px 15px;
 }

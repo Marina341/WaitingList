@@ -1,15 +1,27 @@
+
 			<% for(var i=0;i<scrapped.length;i++) {%>
         <div class="box" >
-
-            <tr> <th><%= scrapped[i].NAZIV %></th></tr> <br/>
-			<tr> <th>Zahvat: </th> <th><%= scrapped[i].IME %></th></tr> <br/>
-			<tr><th>Adresa: </th> <th><%= scrapped[i].KONTAKT_ADRESA %></th> </tr><br/>
-			<tr> <th>e-mail: </th> <th><%= scrapped[i].KONTAKT_EMAIL%></th></tr><br/>
-			<tr><th>Telefon: </th><th><%= scrapped[i].KONTAKT_TELEFON %></th></tr><br/>
-			<tr><th>Prvi slobodni termin: </th><th><%= scrapped[i].SLOBODNI_TERMIN %></th></tr><br/>
-			<tr><th>Ukupna ocjena ustanove: </th><th>null</th><br/></tr>
-
-
-</div>
-			<%  }%>
-			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<div style = "margin:0 auto; padding:5px; height:60%; width:100%">
+						<div class = "ustanova">
+							<p id = "naziv-ustanove"> <%= scrapped[i].NAZIV %> </p>
+							<div id = "ustanova-info">
+								<p> Adresa: <%= scrapped[i].KONTAKT_ADRESA %> </p>
+								<p> e-mail: <%= scrapped[i].KONTAKT_EMAIL2 %> </p>
+								<p> Telefon: <%= scrapped[i].KONTAKT_TELEFON2 %> </p>
+							</div>
+						</div>
+						<div id = "rejting-prikaz">
+							<div>
+								<% for(var j=0;j<5;j++) {%>
+									<i class="fa fa-star" aria-hidden="true" style="color:#ffff00"></i>
+								<% }%>
+							<p> <%= scrapped[i].UKUPNO_ZADOVOLJSTVO/scrapped[i].BROJ_UNOSA %> </p>
+							</div>
+							<p> (<%= scrapped[i].BROJ_UNOSA %> ocjena) </p>
+						</div>
+					</div>
+					<div id = "termin">
+						<p> Prvi slobodni termin: <strong><%= scrapped[i].datum %> <%= scrapped[i].vrijeme %> </strong> </p>
+					</div>
+				</div>
+							<% }%>
