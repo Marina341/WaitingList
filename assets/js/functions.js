@@ -51,13 +51,17 @@ $("#menu-double").on('click', function () {
   }
 });
 
-$(function() {
   $('#selector').change(function(){
-      $('.ocjena').slideUp("slow");
+    $('.ocjena').slideUp("slow");
     $('.adresa').slideUp("slow");
     $('#' + $(this).val()).slideDown("slow");
+    if($(this).val() == 2) {
+      $("#adr").attr("required", true);
+    }
+    else {
+      $("#adr").attr("required", false);
+    }
   });
-});
 
 $( "#myform" ).submit(function( event ) {
   alert( "Vaša ocjena je unesena." );

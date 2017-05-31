@@ -268,9 +268,9 @@
                             <h4> Ovdje pretražite optimalnu bolnicu za traženi zahvat. </h4>
                           </div>
                               <figcaption>
-                                <form id ="forma1" method="post" >
+                                <form id ="forma1" method="POST" >
                                   <p> ODABERITE ZAHVAT: </p>
-                                    <input  class = "typeahead tt query" autocomplete = "off" type ="text" name="item" required></select>
+                                    <input class = "typeahead tt query" autocomplete = "off" type ="text" name="item" required>
                                   <br/>
                                   <p> ODABERITE NAČIN PRETRAŽIVANJA: </p>
                                     <select id="selector" class = "typeahead tt query" name="item1" type ="text">
@@ -280,7 +280,7 @@
                                     </select>
                                     <div id="2" class="adresa">
                                       <p> UNESITE SVOJU ADRESU: </p>
-                                      <input class = "typeahead tt query" type="text" required>
+                                      <input id = "adr" class = "typeahead tt query" type="text">
                                     </div>
                                     <div id="3" class="ocjena">
                                     <p>  ODABERITE KRITERIJ: </p>
