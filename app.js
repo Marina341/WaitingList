@@ -4,9 +4,7 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
-app.set('views',__dirname + '/views');
 app.use(express.static('./assets'));
-app.use(express.static(__dirname + '/assets/JS'));
 app.set('view engine', 'ejs');
 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
@@ -16,15 +14,13 @@ app.post('/',urlencodedParser, function(req, res) {
   logic.reloadTable(res,inputi);
 });
 
-var bla=[];
 app.get('/', function(req, res) {
- /*  res.render('index', {scrapped: bla}); */
   logic.loadtable(res);
 });
-
+/*
 app.get('/', function(req, res) {
   res.render('index');
-});
+}); */
 
 var data=[];
 app.get('/search',function(req,res){
