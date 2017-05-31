@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 var urlencodedParser = bodyParser.urlencoded({extended:false});
 
 app.post('/',urlencodedParser, function(req, res) {
- var inputi=[req.body.item, req.body.item1]
+ var inputi=[req.body.item, req.body.item1, req.body.item2]
   logic.reloadTable(res,inputi);
 });
 

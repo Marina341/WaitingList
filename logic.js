@@ -7,8 +7,16 @@ var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time
 }else if(string[1]==='2'){
   var choice = 'SELECT NAZIV FROM mydb.ustanove limit 10';
 }
-else{
-  var choice = 'SELECT * FROM mydb.ustanove';
+else if(string[1]==='3') {
+      if (string[2]==='4') {
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme FROM ustanove,podaci,kzn, ocijena WHERE ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY UKUPNO_ZADOVOLJSTVO DESC limit 10";
+      }
+      else if (string[2]==='5'){
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme FROM ustanove,podaci,kzn, ocijena WHERE ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY PROFESIONALNOST_OSOBLJA DESC limit 10";
+      }
+      else {
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme FROM ustanove,podaci,kzn, ocijena WHERE ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY KVALITETA_PROSTORA DESC limit 10";
+      }
 }
 
   mysql.sendQuery(choice, function(rows,fields)
