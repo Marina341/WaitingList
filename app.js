@@ -12,7 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({extended:false});
 app.post('/',urlencodedParser, function(req, res) {
   console.log(" SERVER POST")
   //var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.spol,req.body.age,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3];
-  var inputi=[req.body.item, req.body.item1, req.body.item2];
+  var inputi=[req.body.item, req.body.item1, req.body.item2,req.body.item3];
   console.log(inputi);
 //  console.log(ocjene);
 
