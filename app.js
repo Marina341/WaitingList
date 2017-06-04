@@ -17,11 +17,8 @@ app.post('/',urlencodedParser, function(req, res) {
   var inputi=[req.body.item, req.body.item1, req.body.item2,req.body.item3];
   console.log(inputi);
 //  console.log(ocjene);
-
   logic.reloadTable(res,inputi);
-
   //  logic.rateIt(res,ocjene);
-
 
 });
 app.post('/rate',urlencodedParser, function(req, res) {
@@ -29,8 +26,6 @@ app.post('/rate',urlencodedParser, function(req, res) {
   var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3,req.body.spol,req.body.age,];
 console.log(ocjene);
  logic.rateIt(res,ocjene);
-
-
 });
 
 app.get('/', function(req, res){
@@ -48,7 +43,7 @@ app.get('/search',function(req,res){
           console.log(data);
           res.send(data);
     });
-});*/
+});
 
 app.listen(8080);
 console.log('Connected at localhost:8080');
