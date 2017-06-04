@@ -4,36 +4,40 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
-app.use(express.static('./assets'));
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/assets/js'));
 app.set('view engine', 'ejs');
 
-var urlencodedParser = bodyParser.urlencoded({extended:false});
+app.use(bodyParser.urlencoded({extended: true}));
+/* app.use(bodyParser.json()); */
 
-app.post('/',urlencodedParser, function(req, res) {
- var inputi=[req.body.item, req.body.item1, req.body.item2]
+app.post('/', function(req, res) {
+  console.log(" SERVER POST")
+  var inputi=[req.body.item, req.body.item1, req.body.item2];
+  console.log(inputi)
   logic.reloadTable(res,inputi);
-});
-
-app.get('/', function(req, res) {
-  logic.loadtable(res);
 });
 /*
 app.get('/', function(req, res) {
-  res.render('index');
+  logic.loadtable(res);
 }); */
 
-var data=[];
+app.get('/', function(req, res){
+  res.render('index');
+});
+
 app.get('/search',function(req,res){
-    var query = 'select mydb.kzn.ime from mydb.kzn where mydb.kzn.ime like "%'+req.query.key+'%"';
-    db.connection.query(query, function(err, rows, fields) {
-    	  if (err) throw err;
-        for(i=0;i<rows.length;i++)
-          {
-            data.push(rows[i].ime);
-          }
-          res.end(JSON.stringify(data));
+    db.connection.query('SELECT mydb.kzn.ime from mydb.kzn where mydb.kzn.ime like "%'+req.query.key+'%"',
+    function(err, rows, fields) {
+        if (err) throw err;
+        var data=[];
+        for(var i=0;i<rows.length;i++) {
+          data.push(rows[i].ime);
+        }
+          console.log(data);
+          res.send(data);
     });
-    console.log(data);
 });
 
 app.listen(8080);

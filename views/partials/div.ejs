@@ -1,6 +1,6 @@
-
+<%	if( typeof scrapped != 'undefined') {%>
 			<% for(var i=0;i<scrapped.length;i++) {%>
-        <div class="box" >
+        			<div class="box" >
 					<div style = "margin:0 auto; padding:5px; height:60%; width:100%">
 						<div class = "ustanova">
 							<p id = "naziv-ustanove"> <%= scrapped[i].NAZIV %> </p>
@@ -24,4 +24,5 @@
 						<p> Prvi slobodni termin: <strong><%= scrapped[i].datum %> <%= scrapped[i].vrijeme %> </strong> </p>
 					</div>
 				</div>
-							<% }%>
+							<% } %>
+					<% } %>

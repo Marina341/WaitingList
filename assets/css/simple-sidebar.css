@@ -119,7 +119,7 @@
     height: 500px;
     float: left;
     padding: 15px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: auto;
 }
 
