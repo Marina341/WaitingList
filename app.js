@@ -4,24 +4,34 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
+
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/assets/js'));
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
-/* app.use(bodyParser.json()); */
-
-app.post('/', function(req, res) {
+var urlencodedParser = bodyParser.urlencoded({extended:false});
+app.post('/',urlencodedParser, function(req, res) {
   console.log(" SERVER POST")
-  var inputi=[req.body.item, req.body.item1, req.body.item2];
-  console.log(inputi)
+  //var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.spol,req.body.age,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3];
+  var inputi=[req.body.item, req.body.item1, req.body.item2,req.body.item3];
+  console.log(inputi);
+//  console.log(ocjene);
+
   logic.reloadTable(res,inputi);
+
+  //  logic.rateIt(res,ocjene);
+
+
 });
-/*
-app.get('/', function(req, res) {
-  logic.loadtable(res);
-}); */
+app.post('/rate',urlencodedParser, function(req, res) {
+  console.log(" SERVER POST")
+  var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3,req.body.spol,req.body.age,];
+console.log(ocjene);
+ logic.rateIt(res,ocjene);
+
+
+});
 
 app.get('/', function(req, res){
   res.render('index');
@@ -38,7 +48,7 @@ app.get('/search',function(req,res){
           console.log(data);
           res.send(data);
     });
-});
+});*/
 
 app.listen(8080);
 console.log('Connected at localhost:8080');
