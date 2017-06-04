@@ -19,7 +19,7 @@
 								<% for(var j=0;j<5;j++) {%>
 									<i class="fa fa-star" aria-hidden="true" style="color:#ffff00"></i>
 								<% }%>
-							<p> <%= scrapped[i].UKUPNO_ZADOVOLJSTVO/scrapped[i].BROJ_UNOSA %> </p>
+							<p> <%= (scrapped[i].UKUPNO_ZADOVOLJSTVO/scrapped[i].BROJ_UNOSA).toFixed(1) %> </p>
 							</div>
 							<p> (<%= scrapped[i].BROJ_UNOSA %> ocjena) </p>
 						</div>
