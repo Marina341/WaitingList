@@ -102,6 +102,9 @@ figcaption p {
 figcaption input, figcaption select {
   margin-bottom: 15px;
 }
+figcaption option {
+  font-weight:600;
+}
 
 .icon {
   position: absolute;

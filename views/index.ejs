@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste čekanja</title>
-	<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 	  <link href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -251,7 +251,7 @@
                             <h4> Ovdje pretražite optimalnu bolnicu za traženi zahvat. </h4>
                           </div>
                               <figcaption>
-                                <form id ="forma1" >
+                                <form id ="forma1" method="POST">
                                   <p> ODABERITE ZAHVAT: </p>
                                     <input id="tags" class = "typeahead tt query" autocomplete = "off" type ="text" type="search" name="item" required>
 
@@ -275,34 +275,6 @@
                                       </select>
                                     </div>
                                   <button value="submit" id="menu-toggle1" style="display: block; margin: 0 auto"> <i class="fa fa-search" aria-hidden="true"></i></button>
-                                <script>
-                                  $('#forma1').on('submit', function (event) {
-                                    event.preventDefault(); // Stop the form from causing a page refresh.
-                                    var data = {
-                                      txtInput: $("input[name=item]").val(),
-                                      searchOption: $('#selector').val(),
-                                      stateSelector: $('#selector_stanja').val()
-                                    };
-                                    data = $(this).serialize();
-                                    //inputdata = JSON.stringify(inputdata);
-                                    $.ajax({
-                                      method: 'POST',
-                                      url: '/',
-                                      data: data,
-                                      dataType: 'json',
-                                      success: function(response) {
-                                        alert("SUCCESS: " + JSON.stringify(response));
-                                        var dejta = JSON.stringify(response);
-                                        $('#scroll-box').html(dejta);
-                                      },
-                                      error: function(xhr, status, error) {
-                                          alert(xhr.responseText, status, error); // error occur
-                                      }
-                                    })
-                                  });
-                                </script>
-
-
                                 </form>
                               </figcaption>
                         </div>

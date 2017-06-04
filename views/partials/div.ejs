@@ -1,4 +1,8 @@
 <%	if( typeof scrapped != 'undefined') {%>
+		<%	if( scrapped == '') {%>
+					<p style="color:white;font-weight:bold;font-size:20px;text-align:center"> NEMA REZULTATA </p>
+		<% }
+			else {%>
 			<% for(var i=0;i<scrapped.length;i++) {%>
         			<div class="box" >
 					<div style = "margin:0 auto; padding:5px; height:60%; width:100%">
@@ -26,3 +30,4 @@
 				</div>
 							<% } %>
 					<% } %>
+				<% }%>

@@ -1,4 +1,29 @@
-
+/*$(document).ready( function () {
+    $('#forma1').on('submit', function (event) {
+      event.preventDefault(); // Stop the form from causing a page refresh.
+      var data = {
+        txtInput: $("input[name=item]").val(),
+        searchOption: $('#selector').val(),
+        stateSelector: $('#selector_stanja').val()
+      };
+      data = $(this).serialize();
+      //inputdata = JSON.stringify(inputdata);
+      $.ajax({
+        method: 'POST',
+        url: '/',
+        data: data,
+        dataType: 'json',
+        success: function(response) {
+          alert("SUCCESS: " + JSON.stringify(response));
+          var dejta = JSON.stringify(response);
+          $('#scroll-box').html(dejta);
+        },
+        error: function(xhr, status, error) {
+            alert(xhr.responseText, status, error); // error occur
+        }
+      })
+    });
+});*/
 function kliki (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
