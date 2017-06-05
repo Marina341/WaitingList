@@ -28,6 +28,13 @@ console.log(ocjene);
  logic.rateIt(res,ocjene);
 });
 
+app.post('/pregledstanja',urlencodedParser, function(req, res) {
+  console.log(" SERVER POST")
+  var input=[req.body.itemstanje];
+  console.log(input)
+  logic.stanje(res,input);
+});
+
 app.get('/', function(req, res){
   res.render('index');
 });
