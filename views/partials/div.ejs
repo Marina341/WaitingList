@@ -9,15 +9,20 @@
 						<div class = "ustanova">
 							<p id = "naziv-ustanove"> <%= scrapped[i].NAZIV %> </p>
 							<div id = "ustanova-info">
-								<p> Adresa: <%= scrapped[i].KONTAKT_ADRESA %> </p>
+								<p> Adresa: <%= scrapped[i].KONTAKT_ADRESA2 %> </p>
 								<p> e-mail: <%= scrapped[i].KONTAKT_EMAIL2 %> </p>
 								<p> Telefon: <%= scrapped[i].KONTAKT_TELEFON2 %> </p>
 							</div>
 						</div>
 						<div id = "rejting-prikaz">
 							<div>
-								<% for(var j=0;j<5;j++) {%>
+								<% var c = (scrapped[i].UKUPNO_ZADOVOLJSTVO/scrapped[i].BROJ_UNOSA).toFixed(0); %>
+								<% var j; %>
+								<% for(j=0;j<c;j++) {%>
 									<i class="fa fa-star" aria-hidden="true" style="color:#ffff00"></i>
+								<% }%>
+								<% for(var z=j;z<5;z++) {%>
+									<i class="fa fa-star" aria-hidden="true" style="color:gray"></i>
 								<% }%>
 							<p> <%= (scrapped[i].UKUPNO_ZADOVOLJSTVO/scrapped[i].BROJ_UNOSA).toFixed(1) %> </p>
 							</div>

@@ -1,4 +1,4 @@
-$(document).ready( function () {
+ /* $(document).ready( function () {
     $('#forma1').on('submit', function (event) {
       event.preventDefault(); // Stop the form from causing a page refresh.
       var data = {
@@ -49,7 +49,7 @@ $(document).ready( function () {
             })
       });
 });
-
+*/
 
 function kliki (e) {
     e.preventDefault();
@@ -141,9 +141,14 @@ $(document).ready(function(){
         remote: 'http://localhost:8080/search?key=%QUERY',
         limit: 100
     });
-    $('#tags').typeahead({
+    $('#zInp').typeahead({
         name: 'zahvati',
         remote: 'http://localhost:8080/search?key=%QUERY',
+        limit: 100
+    });
+    $('#uInp').typeahead({
+        name: 'ustanove',
+        remote: 'http://localhost:8080/searchh?key=%QUERY',
         limit: 100
     });
 
