@@ -39,7 +39,7 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.get('/search',function(req,res){
+app.get('/search-zahvati',function(req,res){
     db.connection.query('SELECT kzn.ime from kzn where kzn.ime like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;
@@ -52,7 +52,7 @@ app.get('/search',function(req,res){
     });
 });
 
-app.get('/searchh',function(req,res){
+app.get('/search-ustanove',function(req,res){
     db.connection.query('SELECT ustanove.naziv from ustanove where ustanove.naziv like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;

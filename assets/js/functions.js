@@ -114,14 +114,14 @@ $("#menu-double").on('click', function () {
       $("#adr").attr("required", false);
     }
   });
-  
+
   //Izvjestavanje
     $('#selector_stanja').change(function(){
 	$('.stanje7').slideUp("slow");
     $('.stanje8').slideUp("slow");
 	$('.stanje9').slideUp("slow");
     $('#' + $(this).val()).slideDown("slow");
-	
+
   });
 
 $( "#myform" ).submit(function( event ) {
@@ -135,20 +135,31 @@ $( ".rating-star" ).on("click", function () {
   $(this).prevAll().css("background-position", "0 -16px");
 });
 
+// Autocomplete, svi na stranici:
 $(document).ready(function(){
     $('#tags').typeahead({
         name: 'zahvati',
-        remote: 'http://localhost:8080/search?key=%QUERY',
+        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
         limit: 100
     });
     $('#zInp').typeahead({
         name: 'zahvati',
-        remote: 'http://localhost:8080/search?key=%QUERY',
+        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
         limit: 100
     });
     $('#uInp').typeahead({
         name: 'ustanove',
-        remote: 'http://localhost:8080/searchh?key=%QUERY',
+        remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
+        limit: 100
+    });
+    $('#sel_stanja7').typeahead({
+        name: 'zahvati',
+        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
+        limit: 100
+    });
+    $('#sel_stanja9').typeahead({
+        name: 'ustanove',
+        remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
         limit: 100
     });
 
