@@ -23,7 +23,7 @@ else if(string[1]==='3') {
   mysql.sendQuery(choice, function(rows,fields)
   {
     //console.log(rows);
-    res.render('index',{scrapped:rows});
+    res.render('index', {scrapped:rows});
   });
 };
 
