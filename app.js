@@ -33,12 +33,25 @@ app.get('/', function(req, res){
 });
 
 app.get('/search',function(req,res){
-    db.connection.query('SELECT mydb.kzn.ime from mydb.kzn where mydb.kzn.ime like "%'+req.query.key+'%"',
+    db.connection.query('SELECT kzn.ime from kzn where kzn.ime like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;
         var data=[];
         for(var i=0;i<rows.length;i++) {
           data.push(rows[i].ime);
+        }
+          console.log(data);
+          res.send(data);
+    });
+});
+
+app.get('/searchh',function(req,res){
+    db.connection.query('SELECT ustanove.naziv from ustanove where ustanove.naziv like "%'+req.query.key+'%"',
+    function(err, rows, fields) {
+        if (err) throw err;
+        var data=[];
+        for(var i=0;i<rows.length;i++) {
+          data.push(rows[i].naziv);
         }
           console.log(data);
           res.send(data);
