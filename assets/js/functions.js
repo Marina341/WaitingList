@@ -1,10 +1,10 @@
-/*$(document).ready( function () {
+$(document).ready( function () {
     $('#forma1').on('submit', function (event) {
       event.preventDefault(); // Stop the form from causing a page refresh.
       var data = {
         txtInput: $("input[name=item]").val(),
         searchOption: $('#selector').val(),
-        stateSelector: $('#selector_stanja').val()
+        stateSelector: $('#selector1').val()
       };
       data = $(this).serialize();
       //inputdata = JSON.stringify(inputdata);
@@ -23,7 +23,34 @@
         }
       })
     });
-});*/
+
+    $('#myform').on('submit', function (event) {
+      event.preventDefault(); // Stop the form from causing a page refresh.
+      var data = {
+      nazivUStanove: $("input[name=ustanovaInp]").val(),
+      nazivZahvata: $("input[name=zahvatInp]").val(),
+      spol: $('#selector2').val(),
+      age: $('#selector2').val(),
+      ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
+      profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
+      ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
+              };
+            data = $(this).serialize();
+            $.ajax({
+            method: 'POST',
+            url: '/rate',
+            data: data,
+            success: function(data) {
+            alert("SUCCESS: " + data);
+            },
+            error: function(xhr, status, error) {
+                alert(xhr.responseText, status, error); // error occur
+            }
+            })
+      });
+});
+
+
 function kliki (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
@@ -97,4 +124,18 @@ $( ".rating-star" ).on("click", function () {
   $(this).css("background-position", "0 0");
   $(this).nextAll().css("background-position", "0 0");
   $(this).prevAll().css("background-position", "0 -16px");
+});
+
+$(document).ready(function(){
+    $('#tags').typeahead({
+        name: 'zahvati',
+        remote: 'http://localhost:8080/search?key=%QUERY',
+        limit: 100
+    });
+    $('#tags').typeahead({
+        name: 'zahvati',
+        remote: 'http://localhost:8080/search?key=%QUERY',
+        limit: 100
+    });
+
 });

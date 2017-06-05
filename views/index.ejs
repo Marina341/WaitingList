@@ -19,16 +19,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script  type="text/javascript" src="typeahead.min.js"></script>
-    <script type="text/javascript">
-
-    $(document).ready(function(){
-        $('#tags').typeahead({
-            name: 'zahvati',
-            remote: 'http://localhost:8080/search?key=%QUERY',
-            limit: 100
-        });
-    });
-    </script>
     </head>
 
 <body>
@@ -155,39 +145,6 @@
 					<label for="rating-input-3-1" class="rating-star"></label>
 				</span> <br/>
 				<button type = "submit" id= "batn"> Ocijeni </button>
-        <script>
-        $(document).ready(function(){
-        $('#myform').on('submit', function (event) {
-          event.preventDefault(); // Stop the form from causing a page refresh.
-          var data = {
-          nazivUStanove: $("input[name=ustanovaInp]").val(),
-					nazivZahvata: $("input[name=zahvatInp]").val(),
-          spol: $('#selector2').val(),
-				  age: $('#selector2').val(),
-          ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
-          profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
-          ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
-
-
-                  };
-                data = $(this).serialize();
-                                    //inputdata = JSON.stringify(inputdata);
-                $.ajax({
-                method: 'POST',
-                url: '/rate',
-                data: data,
-
-                success: function(data) {
-                alert("SUCCESS: " + data);
-
-                            },
-                    error: function(xhr, status, error) {
-                    alert(xhr.responseText, status, error); // error occur
-                      }
-                    })
-                  });
-                  });
-                    </script>
                     </form>
 			     </div>
                           </div>
