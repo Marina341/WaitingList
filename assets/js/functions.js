@@ -1,62 +1,62 @@
- /* $(document).ready( function () {
-    $('#forma1').on('submit', function (event) {
-      event.preventDefault(); // Stop the form from causing a page refresh.
-      var data = {
-        txtInput: $("input[name=item]").val(),
-        searchOption: $('#selector').val(),
-        stateSelector: $('#selector1').val()
-      };
-      data = $(this).serialize();
-      //inputdata = JSON.stringify(inputdata);
-      $.ajax({
-        method: 'POST',
-        url: '/',
-        data: data,
-        dataType: 'json',
-        success: function(response) {
-          alert("SUCCESS: " + JSON.stringify(response));
-          var dejta = JSON.stringify(response);
-          $('#scroll-box').html(dejta);
-        },
-        error: function(xhr, status, error) {
-            alert(xhr.responseText, status, error); // error occur
-        }
-      })
-    });
+$(document).ready( function () {
+   $('#forma1').on('submit', function (event) {
+     event.preventDefault(); // Stop the form from causing a page refresh.
+     var data = {
+       txtInput: $("input[name=item]").val(),
+       searchOption: $('#selector').val(),
+       stateSelector: $('#selector1').val()
+     };
+     data = $(this).serialize();
+     //inputdata = JSON.stringify(inputdata);
+     $.ajax({
+       method: 'POST',
+       url: '/',
+       data: data,
+       dataType: 'json',
+       success: function(response) {
+      //   alert("SUCCESS: " + JSON.stringify(response));
+         var dejta = JSON.stringify(response);
+         $('#scroll-box').html(dejta);
+       },
+       error: function(xhr, status, error) {
+           alert(xhr.responseText, status, error); // error occur
+       }
+     })
+   });
 
-    $('#myform').on('submit', function (event) {
-      event.preventDefault(); // Stop the form from causing a page refresh.
-      var data = {
-      nazivUStanove: $("input[name=ustanovaInp]").val(),
-      nazivZahvata: $("input[name=zahvatInp]").val(),
-      spol: $('#selector2').val(),
-      age: $('#selector2').val(),
-      ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
-      profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
-      ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
-              };
-            data = $(this).serialize();
-            $.ajax({
-            method: 'POST',
-            url: '/rate',
-            data: data,
-            success: function(data) {
-            alert("SUCCESS: " + data);
-            },
-            error: function(xhr, status, error) {
-                alert(xhr.responseText, status, error); // error occur
-            }
-            })
-      });
+   $('#myform').on('submit', function (event) {
+     event.preventDefault(); // Stop the form from causing a page refresh.
+     var data = {
+     nazivUStanove: $("input[name=ustanovaInp]").val(),
+     nazivZahvata: $("input[name=zahvatInp]").val(),
+     spol: $('#selector2').val(),
+     age: $('#selector2').val(),
+     ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
+     profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
+     ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
+             };
+           data = $(this).serialize();
+           $.ajax({
+           method: 'POST',
+           url: '/rate',
+           data: data,
+           success: function(data) {
+           alert("SUCCESS: " + data);
+           },
+           error: function(xhr, status, error) {
+               alert(xhr.responseText, status, error); // error occur
+           }
+           })
+     });
 });
-*/
 
-function kliki (e) {
-    e.preventDefault();
+
+function kliki () {
+  //  e.preventDefault();       // ako se linija uključi, submit prvo izvuce sidebar-wrapper, pa tek na drugi klik prikazuje rezultate
     $("#wrapper").toggleClass("toggled");
 };
-function dabli (e) {
-    e.preventDefault();
+function dabli () {
+  //  e.preventDefault();
     $("#wrapper").toggleClass("doubled");
     $("#icon").toggleClass("fa fa-arrow-left fa fa-arrow-right");
     if ( $("#maps-link").text() == "ZATVORI" ) {
@@ -73,7 +73,7 @@ function klikon () {
   $("#menu-toggle1").on('click', kliki);
 };
 
-$("#menu-toggle1").on("click", kliki);
+ $("#menu-toggle1").on("click", kliki);
 $("#menu-toggle1").on("click", klikoff);
 $("#menu-toggle2").on('click', kliki);
 $("#menu-toggle2").on('click', klikon);
@@ -162,5 +162,4 @@ $(document).ready(function(){
         remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
         limit: 100
     });
-
 });
