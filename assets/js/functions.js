@@ -114,6 +114,15 @@ $("#menu-double").on('click', function () {
       $("#adr").attr("required", false);
     }
   });
+  
+  //Izvjestavanje
+    $('#selector_stanja').change(function(){
+	$('.stanje7').slideUp("slow");
+    $('.stanje8').slideUp("slow");
+	$('.stanje9').slideUp("slow");
+    $('#' + $(this).val()).slideDown("slow");
+	
+  });
 
 $( "#myform" ).submit(function( event ) {
   alert( "Vaša ocjena je unesena." );
