@@ -9,7 +9,7 @@ var connection = mysql.createPool({
   connectionLimit : 100, // Broju korisnika koji se odjednom mogu spojiti, ostali idu u red za cekanje - queue
   host     : 'localhost',
   user     : 'root',
-  password : 'trequs65',
+  password : 'system192',
   database : 'mydb',
   debug    : false
 });
