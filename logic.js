@@ -44,7 +44,7 @@ mysql.sendQuery(query,function(rows){
     var zahvatID = rows[i].ZAHVAT_ID;
   }
 
-  var query1="update ocijena set UKUPNO_ZADOVOLJSTVO=UKUPNO_ZADOVOLJSTVO+"+ocjene[2]+",PROFESIONALNOST_OSOBLJA=PROFESIONALNOST_OSOBLJA+"+ocjene[3]+",KVALITETA_PROSTORA=KVALITETA_PROSTORA+"+ocjene[4]+",broj_unosa=broj_unosa +1 where ocijena.ustanova_id = "+ustanovaID+" and ocijena.zahvat_id = "+zahvatID+"";
+  var query1="insert into ocijena (USTANOVA_ID,ZAHVAT_ID,UKUPNO_ZADOVOLJSTVO,PROFESIONALNOST_OSOBLJA,KVALITETA_PROSTORA,SPOL,DOBNA_SKUPINA,BROJ_UNOSA) VALUES ("+ustanovaID+","+zahvatID+","+ocjene[2]+","+ocjene[3]+","+ocjene[4]+",'"+ocjene[5]+"','"+ocjene[6]+"',1) ON DUPLICATE KEY UPDATE UKUPNO_ZADOVOLJSTVO=UKUPNO_ZADOVOLJSTVO+"+ocjene[2]+",PROFESIONALNOST_OSOBLJA=PROFESIONALNOST_OSOBLJA+"+ocjene[3]+",KVALITETA_PROSTORA=KVALITETA_PROSTORA+"+ocjene[4]+",broj_unosa=broj_unosa +1";
 
    mysql.sendQuery(query1,function(rows){
       console.log(rows);
