@@ -26,25 +26,6 @@ else if(string[1]==='3') {
   });
 };
 
-var stanje = function(res,string) {
-
-if(string[0]==='7') {
-	  var choice ="SET @sql = NULL; SELECT GROUP_CONCAT(DISTINCT CONCAT('MAX(IF(NAZIV = ''', NAZIV, ''', SLOBODNI_TERMIN, NULL)) AS ', CONCAT(\"`\",NAZIV,\"`\") ) ) INTO @sql FROM bo; SET @sql = CONCAT('SELECT IME, ', @sql, ' FROM bo GROUP BY ZAHVAT_ID'); PREPARE stmt FROM @sql; EXECUTE stmt;";
-
-}
-else if (string[0]==='8'){
-        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme FROM ustanove,podaci,kzn, ocijena WHERE ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY PROFESIONALNOST_OSOBLJA DESC limit 10";
-      }
-else if(string[0]==='9') {
-	  var choice ="SET @sql = NULL; SELECT GROUP_CONCAT(DISTINCT CONCAT('MAX(IF(NAZIV = ''', NAZIV, ''', SLOBODNI_TERMIN, NULL)) AS ', CONCAT(\"`\",NAZIV,\"`\") ) ) INTO @sql FROM bo; SET @sql = CONCAT('SELECT IME, ', @sql, ' FROM bo GROUP BY ZAHVAT_ID'); PREPARE stmt FROM @sql; EXECUTE stmt;";
-}
-  mysql.sendQuery(choice, function(rows,fields)
-  {
-    console.log(rows);
-    res.send({scrapped:rows});
-  });
-};
-
 
 var loadtable = function(res) {
   mysql.sendQuery("SELECT *, if(KONTAKT_EMAIL is null, '-', KONTAKT_EMAIL) AS KONTAKT_EMAIL2, if(KONTAKT_TELEFON is null, '-', KONTAKT_TELEFON) AS KONTAKT_TELEFON2, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme FROM ustanove, podaci, ocijena WHERE WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID limit 20",
@@ -74,6 +55,5 @@ mysql.sendQuery(query,function(rows){
 module.exports = {
   reloadTable: reloadTable,
   loadtable:loadtable,
-  rateIt:rateIt,
-  stanje:stanje
+  rateIt:rateIt
 };
