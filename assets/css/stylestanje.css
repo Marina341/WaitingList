@@ -1,0 +1,50 @@
+.tablica-stanja{
+margin: 7% 30px;
+text-align: center;
+vertical-align: middle;
+}
+.text-center
+{
+    text-align: center !important;
+	vertical-align: middle;
+}
+
+.bodyOne:after {
+    background-image:url("../zastanje.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.57;
+    z-index: -1;
+    content: "";
+}
+td,th {
+  text-align: center;
+  vertical-align: middle !important;
+ 
+}
+.box {
+  border: 5px solid #33a6cc;
+  border-radius: 10px;
+/*  font: 16px sans-serif; */
+  height: 40%;
+  width: 100%;
+  -webkit-transition: width 2s;
+  transition: width 2s;
+  margin-bottom: 15px;
+  z-index: 1;
+  opacity: 1;
+  background-color: #f8f8ff;
+}
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  color: #33a6cc;
+  font-size: 34px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 5%;
+}
