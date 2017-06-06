@@ -179,7 +179,7 @@
                         </div>
                         <div class="modal-body">
                            Odaberite kriterij pregleda stanja:
-                           <form method="POST">
+                           <form id="izvjesce" action="/naziv">
                               <div class="display">
                                  <select id="selector_stanja" name="itemstanje" type ="text" class = "typeahead tt query">
                                     <option value="7">Pojedini zahvat</option>
@@ -188,9 +188,9 @@
                                  </select>
                                  <div id="7" class="stanje7">
                                     <p> ODABERITE ZAHVAT: </p>
-                                    <input id = "sel_stanja7" class = "typeahead tt query" type="text">
+                                    <input id = "sel_stanja7" name="itemstanje7" class = "typeahead tt query" type="text">
                                  </div>
-                                 <div id="8" class="stanje8">
+                                 <div id="8" class="stanje8" name="itemstanje8">
                                     <p> ODABERITE GRUPU ZAHVATA: </p>
                                     <select class = "typeahead tt query" id = "sel_stanje8" type ="text">
                                        <option value="1" selected>PRVI PREGLED</option>
@@ -206,9 +206,9 @@
                                  </div>
                                  <div id="9" class="stanje9">
                                     <p> ODABERITE POJEDINU BOLNICU: </p>
-                                    <input id = "sel_stanja9" class = "typeahead tt query" type="text">
+                                    <input id = "sel_stanja9" name="itemstanje9" class = "typeahead tt query" type="text">
                                  </div>
-                                 <button  value="submit" style="display: block; margin: 0 auto"> <i class="fa fa-search" aria-hidden="true"></i></button>
+                                 <button type = "submit" value="submit" style="display: block; margin: 0 auto"> <i class="fa fa-search" aria-hidden="true"></i></button>
                               </div>
                            </form>
                         </div>
