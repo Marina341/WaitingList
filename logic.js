@@ -21,8 +21,8 @@ else if(string[1]==='3') {
 }
   mysql.sendQuery(choice, function(rows,fields)
   {
-    //console.log(rows);
-    res.send({scrapped:rows});
+    let scrapped = JSON.stringify(rows);
+    res.send({scrapped});
   });
 };
 
@@ -37,8 +37,8 @@ var loadtable = function(res) {
   );
 };
 var rateIt = function(res,ocjene){
-  var query = "SELECT * FROM ustanove , kzn , podaci where ustanove.NAZIV='"+ocjene[0]+"' and kzn.ime='"+ocjene[1]+"' and ustanove.USTANOVA_ID=podaci.USTANOVA_ID and kzn.ZAHVAT_ID=podaci.ZAHVAT_ID";
-mysql.sendQuery(query,function(rows){
+  var query = "SELECT * FROM ustanove , kzn , podaci where ustanove.NAZIV='"+ocjene[0]+"' and kzn.IME='"+ocjene[1]+"' and ustanove.USTANOVA_ID=podaci.USTANOVA_ID and kzn.ZAHVAT_ID=podaci.ZAHVAT_ID";
+  mysql.sendQuery(query,function(rows){
   for(var i=0;i<rows.length;i++){
     var ustanovaID = rows[i].USTANOVA_ID;
     var zahvatID = rows[i].ZAHVAT_ID;
