@@ -24,7 +24,7 @@
             <div id="arrows-1">
                <a id="menu-double" style="width:150px">
                   <i id="icon" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
-                  <p id="maps-link" style="display:inline-block;"> PRIKAŽI NA KARTI </p>
+                  <p type="button" onclick="codeAddress()"id="maps-link" style="display:inline-block;"> PRIKAŽI NA KARTI </p>
                </a>
                <a id="menu-toggle2" style="width:150px">
                   <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
@@ -35,7 +35,9 @@
                <div id="scroll-box">
                   <% include partials/div.ejs %>
                </div>
+
                <div id = "maps-box">
+
                </div>
             </div>
          </div>
@@ -200,7 +202,7 @@
                                        <option value="4">DIJAGNOSTIKA</option>
                                        <option value="61">NACIONALNI PREVENTNI PROGRAM</option>
                                        <option value="101">DNEVNA BOLNICA</option>
-                                       
+
                                     </select>
                                  </div>
                                  <div id="9" class="stanje9">
@@ -259,6 +261,7 @@
       <!-- Bootstrap Core JavaScript<script src="js/norefresh.js"></script> -->
       <!-- Animations Script -->
       <script src="js/functions.js"></script>
+      <script src="js/mapslogic.js"></script>
       <!-- Google Maps -->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL4gJYhG0_-XBNRN3XQ7qwZG5Yr2ZYIsM&callback=myMap"></script>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
