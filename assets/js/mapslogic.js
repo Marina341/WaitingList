@@ -29,16 +29,17 @@ function codeAddress() {
     // mark.forEach(function(element){
     //   console.log(element.innerHTML);
     // })
-    var address = ["Kaniška 111, 53000 Gospic","Željka Selingera bb, 48000 Koprivnica"];
+    //var address = ["Kaniška 111, 53000 Gospic","Željka Selingera bb, 48000 Koprivnica"];
     //var adres="Željka Selingera bb, 48000 Koprivnica";
     for(var i=0;i<allAddresses.length;i++){
     geocoder.geocode( { 'address':allAddresses[i]}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
+      //  map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
         });
+
         markers.push(marker);
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
@@ -76,7 +77,7 @@ $("#menu-double").on('click', function () {
       x.style.visibility = 'visible';
       $("#maps-box").animate({"margin-right": '0px'}, 500);
       google.maps.event.trigger(map, "resize");
-        //map.setCenter(new google.maps.LatLng(44.6313624, 16.0895066));
-        //map.setZoom(7);
+        map.setCenter(new google.maps.LatLng(44.6313624, 16.0895066));
+        map.setZoom(7);
   }
 });

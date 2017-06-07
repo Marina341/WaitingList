@@ -273,7 +273,19 @@ th {
   color: #0097CF;
   font-size: 14px;
   font-weight: bold;
+  padding: 0;
 }
-.modal option {
+.modal-content option {
   font-weight:600;
+}
+
+.col-sm-8 {
+  margin-top: 10px;
+  width: 150px !important;
+  padding-left: 0 !important;
+}
+.control-label {
+  margin-left: 0;
+  padding: 0;
+  width: 250px !important;
 }
