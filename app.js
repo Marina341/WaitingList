@@ -46,7 +46,21 @@ db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN,
 		res.render('pregledstanja',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr});
 	})
 	}
-	 
+	 	 else if (req.query.itemstanje==8){
+		console.log("ja sam else if");
+		console.log(req.query.itemstanje8);
+		db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 50;",
+	function(err,rows){
+		if(err) throw err
+		navivust = [];
+		termin = [];
+		imence = [];
+		terminvr =[];
+		nazivtipa =[];
+		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA)}
+		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa});
+			})
+		}
 	else if (req.query.itemstanje==9){
 		console.log("ja sam else if");
 		console.log(req.query.itemstanje9);
