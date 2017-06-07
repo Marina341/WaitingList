@@ -249,7 +249,6 @@ th {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 2px;
   padding: 8px 0;
   width: 300px;
   max-height: 250px;
@@ -268,4 +267,13 @@ th {
   color: #0097CF;
   text-align: left;
   font-size: 14px;
+}
+
+.modal-content {
+  color: #0097CF;
+  font-size: 14px;
+  font-weight: bold;
+}
+.modal option {
+  font-weight:600;
 }

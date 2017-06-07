@@ -7,7 +7,7 @@ $(document).ready(function(){
         stateSelector: $('#selector_stanja').val()
       };
       data = $(this).serialize();
-      
+
       $.ajax({
         method: 'POST',
         url: '/',
@@ -15,7 +15,7 @@ $(document).ready(function(){
         dataType: 'json',
         success: function(response) {
           let results = JSON.parse(response["scrapped"]);
-          console.log(results)                                        
+          console.log(results)
           //clean div(box) and children;
           $('#scroll-box').empty();
           //create divs (stari div.js)
@@ -43,7 +43,7 @@ $(document).ready(function(){
             html += "</strong></p></div></div>";
             let div = document.getElementById("scroll-box");
             div.innerHTML = div.innerHTML + html;
-            
+
           });
         },
         error: function(xhr, status, error) {
@@ -79,7 +79,6 @@ $(document).ready(function(){
     });
 });
 
-
 function kliki () {
   //  e.preventDefault();       // ako se linija uključi, submit prvo izvuce sidebar-wrapper, pa tek na drugi klik prikazuje rezultate
     $("#wrapper").toggleClass("toggled");
@@ -90,7 +89,6 @@ function dabli () {
     $("#icon").toggleClass("fa fa-arrow-left fa fa-arrow-right");
     if ( $("#maps-link").text() == "ZATVORI" ) {
         title = "PRIKAŽI NA KARTI";
-      
     } else {
         title = "ZATVORI";
         }
@@ -103,7 +101,7 @@ function klikon () {
   $("#menu-toggle1").on('click', kliki);
 };
 
- $("#menu-toggle1").on("click", kliki);
+$("#menu-toggle1").on("click", kliki);
 $("#menu-toggle1").on("click", klikoff);
 $("#menu-toggle2").on('click', kliki);
 $("#menu-toggle2").on('click', klikon);

@@ -179,7 +179,7 @@
                            <h4 class="modal-title">Pregled stanja</h4>
                         </div>
                         <div class="modal-body">
-                           Odaberite kriterij pregleda stanja:
+                        <p style="margin:15px 0"> Odaberite kriterij pregleda stanja: </p>
                            <form id="izvjesce" action="/naziv">
                               <div class="display">
                                  <select id="selector_stanja" name="itemstanje" type ="text" class = "typeahead tt query">
@@ -188,24 +188,23 @@
                                     <option value="9">Za pojedinu bolnicu</option>
                                  </select>
                                  <div id="7" class="stanje7">
-                                    <p> ODABERITE ZAHVAT: </p>
+                                    <p style="margin:15px 0"> Unesite zahvat: </p>
                                     <input id = "sel_stanja7" name="itemstanje7" class = "typeahead tt query" type="text">
                                  </div>
                                  <div id="8" class="stanje8">
-                                    <p> ODABERITE GRUPU ZAHVATA: </p>
+                                    <p style="margin:15px 0"> Odaberite grupu zahvata: </p>
                                     <select class = "typeahead tt query" name="itemstanje8" id = "sel_stanje8" type ="text">
-                                       <option value="1" selected>PRVI PREGLED</option>
-                                       <option value="2">KONTROLNI PREGLED</option>
-                                       <option value="121">KONZULTACIJE</option>
-                                       <option value="3">TERAPIJSKI POSTUPCI</option>
-                                       <option value="4">DIJAGNOSTIKA</option>
-                                       <option value="61">NACIONALNI PREVENTNI PROGRAM</option>
-                                       <option value="101">DNEVNA BOLNICA</option>
-
+                                       <option value="1">Prvi pregled</option>
+                                       <option value="2">Kontrolni pregled</option>
+                                       <option value="121">Koznultacije</option>
+                                       <option value="3">Terapijski postupci</option>
+                                       <option value="4">Dijagnostika</option>
+                                       <option value="61">Nacionalni preventni program</option>
+                                       <option value="101">Dnevna bolnica</option>
                                     </select>
                                  </div>
                                  <div id="9" class="stanje9">
-                                    <p> ODABERITE POJEDINU BOLNICU: </p>
+                                    <p style="margin:15px 0"> Unesite ustanovu: </p>
                                     <input id = "sel_stanja9" name="itemstanje9" class = "typeahead tt query" type="text">
                                  </div>
                                  <button type = "submit" value="submit" style="display: block; margin: 0 auto"> <i class="fa fa-search" aria-hidden="true"></i></button>
@@ -226,7 +225,7 @@
                   </div>
                   <figcaption>
                      <form id ="forma1" method="POST">
-                        <p> ODABERITE ZAHVAT: </p>
+                        <p> UNESITE ZAHVAT: </p>
                         <input id="tags" class = "typeahead tt query" autocomplete = "off" type ="text" type="search" name="item" required>
                         <br/>
                         <p> ODABERITE NAČIN PRETRAŽIVANJA: </p>
