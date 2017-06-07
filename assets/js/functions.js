@@ -24,7 +24,7 @@ $(document).ready(function(){
             html += "<div style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
             html += "<div class = 'ustanova'><p id = 'naziv-ustanove'>";
             html += element.NAZIV + "</p><div id = 'ustanova-info'>";
-            html += "<p> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
+            html += "<p id='mark'> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
             html += "<p> e-mail: " + element.KONTAKT_EMAIL2 + "</p>";
             html += "<p> Telefon :" + element.KONTAKT_TELEFON2 + "</p></div></div>";
             html += "<div id = 'rejting-prikaz'><div>";
