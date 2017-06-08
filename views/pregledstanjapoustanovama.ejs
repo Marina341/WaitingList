@@ -3,7 +3,7 @@
 
 <head>
     <title>Liste čekanja</title>
-	
+
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,22 +12,22 @@
 </head>
 
 <body class="bodyOne">
-<h3> Pregled zahvata po ustanovi </h3>
+<h3> Pregled zahvata po ustanovi: <%= navivust[1] %> </h3>
    <div class="tablica-stanja">
    <div class="box">
-   <div class="table-responsive"> 
+   <div class="table-responsive">
    <table class="table" class="text-center">
-   <tr  class="info"><th>Zahvat po ustanovama</th> 
+   <tr  class="info"><th>Ustanova</th>
    <% for(var i=0;i<imence.length;i++) {%>
    <th> <%= imence[i] %> </th>
    <% }%>
    </tr>
-   <tr class="active"><td>  <%= navivust[1] %> </td>  
+   <tr class="active"><td>  <%= navivust[1] %> </td>
    <% for(var y=0;y<imence.length;y++) {%>
    <td> <%= termin[y] %> <%=terminvr[y] %> </td>
    <% }%>
    </tr>
-   
+
    </table>
  <tr class="warning"> <button type="button" class="btn btn-info btn-lg" onclick="exportTableToCSV('members.csv')"> Izvezi podatke (.CSV) </button> </tr>
    </div>

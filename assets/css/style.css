@@ -284,6 +284,11 @@ th {
   width: 150px !important;
   padding-left: 0 !important;
 }
+.col-sm-8 label {
+  margin-right: 4px;
+  padding: 0;
+}
+
 .control-label {
   margin-left: 0;
   padding: 0;

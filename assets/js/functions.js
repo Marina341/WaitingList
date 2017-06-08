@@ -19,6 +19,13 @@ $(document).ready(function(){
           //clean div(box) and children;
           $('#scroll-box').empty();
           //create divs (stari div.js)
+          if (results.length === 0) {
+            let html = "<div class='box'>";
+            html += "<p style='margin-top:30px;text-align:center;font-weight:bold;color:white;font-size:16px;color:#002533'> Za ovu pretragu nema rezultata! Molimo izaberite drugi kriterij. </p>";
+            let div = document.getElementById("scroll-box");
+            div.innerHTML = div.innerHTML + html;
+          }
+          else {
           results.forEach(function(element) {
             let html = "<div class='box'>";
             html += "<div style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
@@ -45,6 +52,7 @@ $(document).ready(function(){
             div.innerHTML = div.innerHTML + html;
 
           });
+        }
         },
         error: function(xhr, status, error) {
             alert(xhr.responseText, status, error); // error handler
