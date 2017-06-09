@@ -1,11 +1,19 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
+      $("#emptyInputAction").on('click',function() {
+          $("#uInp").val('');
+          $("#zInp").val('');
+          $("#selector3").val(" - 18");
+          $("#selector2").val("M");
+          $(".rating-star").attr("style", "background-position: 0px -16px;");
+        });
+
       $('#forma1').on('submit', function (event) {
-      event.preventDefault(); // Stop the form from causing a page refresh.
-      let data = {
-        txtInput: $("input[name=item]").val(),
-        searchOption: $('#selector').val(),
-        stateSelector: $('#selector_stanja').val()
-      };
+      	event.preventDefault(); // Stop the form from causing a page refresh.
+      	let data = {
+        	txtInput: $("input[name=item]").val(),
+        	searchOption: $('#selector').val(),
+        	stateSelector: $('#selector_stanja').val()
+      	};
       data = $(this).serialize();
 
       $.ajax({
@@ -82,25 +90,35 @@ $(document).ready(function(){
     $('#myform').on('submit', function (event) {
       event.preventDefault(); // Stop the form from causing a page refresh.
       var data = {
-      nazivUStanove: $("input[name=ustanovaInp]").val(),
-      nazivZahvata: $("input[name=zahvatInp]").val(),
-      spol: $('#selector2').val(),
-      age: $('#selector2').val(),
-      ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
-      profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
-      ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
-              };
+        nazivUStanove: $("input[name=ustanovaInp]").val(),
+        nazivZahvata: $("input[name=zahvatInp]").val(),
+        spol: $('#selector2').val(),
+        age: $('#selector2').val(),
+        ukupnoZadovoljstvo: $("#ukupnoZadovoljstvo input[type='radio']:checked").val(),
+        profesionalnost: $("#profesionalnost input[type='radio']:checked").val(),
+        ukupnoZadovoljstvo: $("#prostor input[type='radio']:checked").val()
+      };
       data = $(this).serialize();
       $.ajax({
-      method: 'POST',
-      url: '/',
-      data: data,
-      success: function(data) {
-        alert("SUCCESS: " + data);
-                  },
-      error: function(xhr, status, error) {
-          alert(xhr.responseText, status, error); // error occur
-      }
+        method: 'POST',
+        url: '/rate',
+        data: data,
+        beforeSend: function() {
+          console.log(data)
+        },
+        success: function(data) {
+          if(data === "FAIL") {
+            alert("Krivo uneseni podaci, ponovite unos ustanove/zahvata. " );
+          }
+          else {
+            alert("Ocjena unešena, hvala!");
+            $( "#closeButton" ).click();
+          }
+
+                    },
+        error: function(xhr, status, error) {
+            alert("ERROR" + xhr.responseText, status, error); // error occur
+        }
       });
     });
 });
