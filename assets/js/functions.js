@@ -29,25 +29,43 @@ $(document).ready(function(){
           results.forEach(function(element) {
             let html = "<div class='box'>";
             html += "<div style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
-            html += "<div class = 'ustanova'><p id = 'naziv-ustanove'>";
-            html += element.NAZIV + "</p><div id = 'ustanova-info'>";
+            html += "<p id = 'naziv-ustanove'>"+element.NAZIV +"</p>";
+            html += "<div class = 'ustanova'><div id = 'ustanova-info'>";
             html += "<p id='mark'> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
             html += "<p> e-mail: " + element.KONTAKT_EMAIL2 + "</p>";
-            html += "<p> Telefon :" + element.KONTAKT_TELEFON2 + "</p></div></div>";
+            html += "<p> Telefon: " + element.KONTAKT_TELEFON2 + "</p></div></div>";
             html += "<div id = 'rejting-prikaz'><div>";
-            var c = (element.UKUPNO_ZADOVOLJSTVO/element.BROJ_UNOSA).toFixed(0);
+            var c;
+            if ($("#selector").val()==='3') {
+              if ($("#selector1").val()==='4') {
+                 c = (element.UKUPNO_ZADOVOLJSTVO/element.BROJ_UNOSA);
+                 console.log("UKUPNO ZADOVOLJSTVO: "+c);
+             }
+             else if ($("#selector1").val()==='5') {
+                c = (element.PROFESIONALNOST_OSOBLJA/element.BROJ_UNOSA);
+                console.log("PROF. OSOBLJA: "+c);
+             }
+             else if ($("#selector1").val()==='6') {
+                c = (element.KVALITETA_PROSTORA/element.BROJ_UNOSA);
+                console.log("KVALITETA PROSTORA: "+c);
+             }
+           }
+           else {
+              c = ((element.KVALITETA_PROSTORA+element.PROFESIONALNOST_OSOBLJA+element.UKUPNO_ZADOVOLJSTVO)/(3*element.BROJ_UNOSA));
+              console.log("PROSJEK SVIH OCJENA: "+c);
+           }
             var j;
-            for( j=0;j<c;j++ ) {
+            for( j=0;j<c.toFixed(0);j++ ) {
               html += "<i class='fa fa-star' aria-hidden='true' style='color:#ffff00'></i>";
             }
             for(var z=j;z<5;z++) {
               html += "<i class='fa fa-star' aria-hidden='true' style='color:gray'></i>";
             }
-            html += "<p>" + (element.UKUPNO_ZADOVOLJSTVO/element.BROJ_UNOSA).toFixed(1) + "</p></div>";
-            html += "<p>" + element.BROJ_UNOSA + " ocjena </p></div></div>";
-            html += "<div id = 'termin'><p> Prvi slobodni termin: <strong>";
-            html += element.datum + " " + element.vrijeme;
-            html += "</strong></p></div></div>";
+            html += "&nbsp&nbsp<strong>" + c.toFixed(1) + "</strong></div>";
+            html += "<p><strong>(" + element.BROJ_UNOSA + " ocjena) </strong></p></div></div>";
+            html += "<div id = 'termin'><strong> Prvi slobodni termin: &nbsp &nbsp";
+            html += "<span style='border:solid;border-color:#002533;border-radius:10px;background-color:#002533;color:#f8f8ff;font-size:16px'>" + element.datum + " " + element.vrijeme + "</span>";
+            html += "</strong></div></div>";
             let div = document.getElementById("scroll-box");
             div.innerHTML = div.innerHTML + html;
 
@@ -156,7 +174,7 @@ $(document).ready(function(){
     });
     $('#zInp').typeahead({
         name: 'zahvati',
-        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
+        remote: 'http://localhost:8080/search-zahvati2?key=%QUERY',
         limit: 100
     });
     $('#uInp').typeahead({

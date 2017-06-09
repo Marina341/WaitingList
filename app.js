@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
-
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/assets/js'));
@@ -17,7 +16,7 @@ app.post('/',urlencodedParser, function(req, res) {
   var inputi=[req.body.item, req.body.item1, req.body.item2,req.body.item3];
   console.log(inputi);
 //  console.log(ocjene);
-  logic.reloadTable(res,inputi);
+    logic.reloadTable(res,inputi);
   //  logic.rateIt(res,ocjene);
 
 });
@@ -32,10 +31,10 @@ app.get('/naziv',urlencodedParser, function(req, res){
 
 	if (req.query.itemstanje==7){
 		console.log("ja sam if");
-		console.log(req.query.itemstanje7); 
-		
-db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE IME= '"+req.query.itemstanje7+"';", 
- 		
+		console.log(req.query.itemstanje7);
+
+db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE IME= '"+req.query.itemstanje7+"';",
+
 	function(err,rows){
 		if(err) throw err
 		navivust = [];
@@ -49,7 +48,7 @@ db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN,
 	 	 else if (req.query.itemstanje==8){
 		console.log("ja sam else if");
 		console.log(req.query.itemstanje8);
-		db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 50;",
+		db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 50;",
 	function(err,rows){
 		if(err) throw err
 		navivust = [];
@@ -64,7 +63,7 @@ db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN,
 	else if (req.query.itemstanje==9){
 		console.log("ja sam else if");
 		console.log(req.query.itemstanje9);
-		db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE NAZIV= '"+req.query.itemstanje9+"';",
+		db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE NAZIV= '"+req.query.itemstanje9+"';",
 	function(err,rows){
 		if(err) throw err
 		navivust = [];
@@ -100,6 +99,22 @@ app.get('/search-ustanove',function(req,res){
         var data=[];
         for(var i=0;i<rows.length;i++) {
           data.push(rows[i].naziv);
+        }
+          console.log(data);
+          res.send(data);
+    });
+});
+
+app.get('/search-zahvati2',function(req,res){
+  app.get('/search-ustanove',function(req,res){
+    uinp = req.query.key;
+  });
+    db.connection.query('select kzn.ime from kzn, podaci, ustanove where kzn.zahvat_id = podaci.zahvat_id and podaci.USTANOVA_ID= ustanove.ustanova_id and ustanove.naziv = "'+req.body.uinp+'" and kzn.ime like "%'+req.query.key+'%"',
+    function(err, rows, fields) {
+        if (err) throw err;
+        var data=[];
+        for(var i=0;i<rows.length;i++) {
+          data.push(rows[i].ime);
         }
           console.log(data);
           res.send(data);

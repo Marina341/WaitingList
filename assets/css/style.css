@@ -167,6 +167,7 @@ background: #33a6cc;
   z-index: 1;
   opacity: 0.7;
   background-color: #f8f8ff;
+  position:relative;
 }
 .box:after {
   z-index: -15;
