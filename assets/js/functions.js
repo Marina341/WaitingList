@@ -75,7 +75,7 @@ $(document).ready(function(){
       data = $(this).serialize();
       $.ajax({
       method: 'POST',
-      url: '/',
+      url: '/rate',
       data: data,
       success: function(data) {
         alert("SUCCESS: " + data);
