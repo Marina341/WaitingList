@@ -108,8 +108,10 @@
   float:left;
   width:120px;
   cursor:pointer;
-  color:#f8f8ff;
+  color:#33a6cc;
   height: 30px;
+  font-size: 14px;
+  font-weight: bold;
 }
 #menu-double:hover, #menu-toggle2:hover {
   text-decoration: none;
@@ -187,13 +189,16 @@
     margin: 0 auto;
     display: block;
 }
-#forma1 button {
+#forma1 button, #izvjesce button {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;
     outline:none;
+}
+#forma1 img:hover {
+  width:53px;
 }
 
 .ustanova {
