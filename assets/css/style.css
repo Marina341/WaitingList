@@ -21,6 +21,10 @@
     content: "";
 }
 
+.textal{
+    text-align: left;
+}
+
 .star {
    color: red;
 }
