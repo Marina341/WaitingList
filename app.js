@@ -50,7 +50,7 @@ db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODN
 	 	 else if (req.query.itemstanje==8){
 		console.log("ja sam else if");
 		console.log(req.query.itemstanje8);
-		db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 50;",
+		db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 2500;",
 	function(err,rows){
 		if(err) throw err
 		navivust = [];
@@ -58,8 +58,10 @@ db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODN
 		imence = [];
 		terminvr =[];
 		nazivtipa =[];
-		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA)}
-		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa});
+		zahvatid =[];
+		ustanovaid =[];
+		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA);zahvatid.push(rows[x].ZAHVAT_ID); ustanovaid.push(rows[x].USTANOVA_ID)}
+		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa, zahvatid:zahvatid, ustanovaid:ustanovaid});
 			})
 		}
 	else if (req.query.itemstanje==9){
