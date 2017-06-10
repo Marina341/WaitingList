@@ -56,8 +56,10 @@ db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODN
 		imence = [];
 		terminvr =[];
 		nazivtipa =[];
-		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA)}
-		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa});
+		zahvatid =[];
+		ustanovaid =[];
+		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA);zahvatid.push(rows[x].ZAHVAT_ID); ustanovaid.push(rows[x].USTANOVA_ID)}
+		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa, zahvatid:zahvatid, ustanovaid:ustanovaid});
 			})
 		}
 	else if (req.query.itemstanje==9){
