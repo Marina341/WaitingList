@@ -103,6 +103,17 @@ $(document).ready(function(){
       }
       });
     });
+
+    $('#zInp').click(function () {
+    //  event.preventDefault(); // Stop the form from causing a page refresh.
+      var ustanovaInp = 'OB Gospic'; //$("#uInp").val();
+          $.post('/search-zahvati-priv',{ustanovaInp:ustanovaInp},function(data) {
+              if(data === 'done') {
+                console.log('ajax post ustanove uspio!');
+              }
+          });
+      });
+
 });
 
 function kliki () {
@@ -154,9 +165,8 @@ $("#menu-double").on('click', dabli);
 
   });
 
-$( "#myform" ).submit(function( event ) {
+$( "#myform" ).submit(function() {
   alert( "Vaša ocjena je unesena." );
-  event.preventDefault();
 });
 
 $( ".rating-star" ).on("click", function () {
@@ -172,14 +182,14 @@ $(document).ready(function(){
         remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
         limit: 100
     });
-    $('#zInp').typeahead({
-        name: 'zahvati',
-        remote: 'http://localhost:8080/search-zahvati2?key=%QUERY',
-        limit: 100
-    });
     $('#uInp').typeahead({
         name: 'ustanove',
         remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
+        limit: 100
+    });
+    $('#zInp').typeahead({
+        name: 'zahvatiii',
+        remote: 'http://localhost:8080/search-zahvatiii?key=%QUERY',
         limit: 100
     });
     $('#sel_stanja7').typeahead({

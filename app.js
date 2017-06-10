@@ -3,6 +3,8 @@ var db = require('./database');
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+global.uinp;
+global.UstInp;
 
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/assets'));
@@ -79,7 +81,7 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.get('/search-zahvati',function(req,res){
+app.get('/search-zahvati',urlencodedParser,function(req,res){
     db.connection.query('SELECT kzn.ime from kzn where kzn.ime like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;
@@ -92,7 +94,7 @@ app.get('/search-zahvati',function(req,res){
     });
 });
 
-app.get('/search-ustanove',function(req,res){
+app.get('/search-ustanove',urlencodedParser,function(req,res){
     db.connection.query('SELECT ustanove.naziv from ustanove where ustanove.naziv like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;
@@ -104,12 +106,15 @@ app.get('/search-ustanove',function(req,res){
           res.send(data);
     });
 });
+app.post('/search-zahvati-priv',urlencodedParser,function(req,res){
+      UstInp = req.body.ustanovaInp;
+      console.log("jel ima iceg: "+UstInp);
+      res.send({UstInp:UstInp});
+});
 
-app.get('/search-zahvati2',function(req,res){
-  app.get('/search-ustanove',function(req,res){
-    uinp = req.query.key;
-  });
-    db.connection.query('select kzn.ime from kzn, podaci, ustanove where kzn.zahvat_id = podaci.zahvat_id and podaci.USTANOVA_ID= ustanove.ustanova_id and ustanove.naziv = "'+req.body.uinp+'" and kzn.ime like "%'+req.query.key+'%"',
+app.get('/search-zahvatiii',urlencodedParser,function(req,res){
+  //uinp=['OB Gospic'];
+    db.connection.query('select kzn.ime from kzn, podaci, ustanove where kzn.zahvat_id = podaci.zahvat_id and podaci.USTANOVA_ID= ustanove.ustanova_id and ustanove.naziv = "'+UstInp+'" and kzn.ime like "%'+req.query.key+'%"',
     function(err, rows, fields) {
         if (err) throw err;
         var data=[];
