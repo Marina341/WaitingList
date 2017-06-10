@@ -105,8 +105,7 @@ $(document).ready(function(){
     });
 
     $('#zInp').click(function () {
-    //  event.preventDefault(); // Stop the form from causing a page refresh.
-      var ustanovaInp = 'OB Gospic'; //$("#uInp").val();
+      var ustanovaInp = $("#uInp").val();
           $.post('/search-zahvati-priv',{ustanovaInp:ustanovaInp},function(data) {
               if(data === 'done') {
                 console.log('ajax post ustanove uspio!');
