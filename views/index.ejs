@@ -47,7 +47,7 @@
             <div class="bodyOne">
                <nav>
                   <ol>
-                     <li type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalStanje"> Pregled stanja</li>
+                     <li type="button" id="preg_stanja" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalStanje"> Pregled stanja</li>
                      <li type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalAbout"> O nama</li>
                      <li type="button" id="emptyInputAction" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ocijeni</li>
                   </ol>
@@ -217,7 +217,7 @@
                            <form id="izvjesce" action="/naziv">
                               <div class="display">
                                  <select id="selector_stanja" name="itemstanje" type ="text" class = "typeahead tt query">
-                                    <option value="7">Pojedini zahvat</option>
+                                    <option value="7" selected>Pojedini zahvat</option>
                                     <option value="8">Pojedine grupe zahvata</option>
                                     <option value="9">Za pojedinu bolnicu</option>
                                  </select>
@@ -228,7 +228,7 @@
                                  <div id="8" class="stanje8">
                                     <p style="margin:15px 0"> Odaberite grupu zahvata: </p>
                                     <select class = "typeahead tt query" name="itemstanje8" id = "sel_stanje8" type ="text">
-                                       <option value="1">Prvi pregled</option>
+                                       <option value="1" selected>Prvi pregled</option>
                                        <option value="2">Kontrolni pregled</option>
                                        <option value="121">Koznultacije</option>
                                        <option value="3">Terapijski postupci</option>
@@ -241,12 +241,12 @@
                                     <p style="margin:15px 0"> Unesite ustanovu: </p>
                                     <input id = "sel_stanja9" name="itemstanje9" class = "typeahead tt query" type="text">
                                  </div>
-                                 <button value="submit" type="submit" style="width:auto;display:block;margin:0 auto;cursor:pointer"> <img src="http://findicons.com/files/icons/977/rrze/32/magnifying_glass.png"></img></button>
+                                 <button id="reset" value="submit" type="submit" style="width:auto;display:block;margin:0 auto;cursor:pointer"> <img src="http://findicons.com/files/icons/977/rrze/32/magnifying_glass.png"></img></button>
                               </div>
                            </form>
                         </div>
                         <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
+                           <button id="klous" type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
                         </div>
                      </div>
                   </div>

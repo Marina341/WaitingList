@@ -36,7 +36,7 @@ $(document).ready(function(){
             div.innerHTML = div.innerHTML + html;
           }else {
           results.forEach(function(element) {
-            let html = "<div class='box'>";
+            let html = "<div class='box' id='"+element.NAZIV+"'>";
             html += "<div  style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
             html += "<p id = 'nazivUstanove' class = 'naziv-ustanove'>"+element.NAZIV +"</p>";
             html += "<div class = 'ustanova'><div id = 'ustanova-info'>";
@@ -86,6 +86,7 @@ $(document).ready(function(){
             alert(xhr.responseText, status, error); // error handler
         }
       });
+
     });
 
 
@@ -176,7 +177,22 @@ $("#menu-double").on('click', dabli);
 
   });
 
-
+  $('#myModal').on('hidden.bs.modal', function (e) {
+    $(this)
+      .find("input,textarea,select")
+         .val('')
+         .end()
+      .find("input[type=checkbox], input[type=radio]")
+         .prop("checked", "")
+         .end();
+  })
+  $("#preg_stanja").on("click", function () {
+      $("#selector_stanja").val('7')
+      $("#sel_stanje8").val('1')
+      $('.stanje7').slideDown("slow");
+      $('.stanje8').slideUp("slow");
+      $('.stanje9').slideUp("slow");
+  });
 
 $( ".rating-star" ).on("click", function () {
   $(this).css("background-position", "0 0");
