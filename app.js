@@ -111,6 +111,7 @@ app.get('/search-ustanove',urlencodedParser,function(req,res){
 app.post('/search-zahvati-priv',urlencodedParser,function(req,res){
       UstInp = req.body.ustanovaInp;
       console.log("jel ima iceg: "+UstInp);
+
       res.send({UstInp:UstInp});
 });
 
