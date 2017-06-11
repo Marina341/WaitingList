@@ -202,7 +202,8 @@ $(document).ready(function(){
     },
     {
         name: 'zahvati',
-        source: zahvati.ttAdapter()
+        source: zahvati.ttAdapter(),
+        limit: 10
     });
 
     $('#uInp').typeahead({
@@ -212,7 +213,8 @@ $(document).ready(function(){
     },
     {
         name: 'ustanove',
-        source: ustanove.ttAdapter()
+        source: ustanove.ttAdapter(),
+        limit: 10
     });
 
     $('#sel_stanja7').typeahead({
@@ -222,7 +224,8 @@ $(document).ready(function(){
     },
     {
         name: 'zahvati',
-        source: zahvati.ttAdapter()
+        source: zahvati.ttAdapter(),
+        limit: 10
     });
 
     $('#sel_stanja9').typeahead({
@@ -232,7 +235,8 @@ $(document).ready(function(){
     },
     {
         name: 'ustanove',
-        source: ustanove.ttAdapter()
+        source: ustanove.ttAdapter(),
+        limit: 10
     });
 
     $('#zInp').focus(function () {
