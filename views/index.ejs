@@ -23,9 +23,9 @@
          <!-- Sidebar -->
          <div id="sidebar-wrapper">
             <div id="arrows-1">
-               <a id="menu-double" style="width:150px">
+               <a type="button" id="menu-double" onclick="codeAddress()" style="width:150px">
                   <i id="icon" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
-                  <p type="button" onclick="codeAddress()"id="maps-link" style="display:inline-block"> PRIKAŽI NA KARTI </p>
+                  <p id="maps-link" style="display:inline-block">  </p>
                </a>
                <a id="menu-toggle2" style="width:150px">
                   <p style="display:inline-block"> POČETNA </p>
@@ -61,18 +61,17 @@
                         </div>
                         <div class="modal-body">
                           <div class="container" style="max-width:600px;padding:20px 20px 20px 20px">
-                          	<form class="form-horizontal" role="form" id="myform" action="/rate">
+                          	<form class="form-horizontal" role="form" id="myform">
                           	   <div class="form-group">
                           	      <label class ="control-label col-sm-3"><p> Odaberite ustanovu<span class="star">*</span> </p></label>
                           		<div class="col-sm-8" style="width:300px">
-                          	      <input name="ustanovaInp" id="uInp" style="width:150%" class = "typeahead tt query" autocomplete = "off" type="search" required>
+                          	      <input name="ustanovaInp" id="uInp" style="width:150%" autocomplete = "off" type="search" required>
                           		</div>
                           	    </div>
                           	   <div class="form-group">
                           	      <label class ="control-label col-sm-3">Odaberite zahvat<span class="star">*</span></label>
                           		<div class="col-sm-8" style="width:300px">
-                          	      <input href="#myModal" action="/search-zahvati-priv" method="POST" name="zahvatInp" id="zInp" style="width:150%" class = "typeahead tt query" autocomplete = "off" required>
-
+                          	      <input name="zahvatInp" id="zInp" style="width:150%" autocomplete = "off" type="search" required>
                           		</div>
                           	    </div>
                           	   <div class="form-group">
@@ -88,11 +87,11 @@
                           	      <label class ="control-label col-sm-3">Dobna skupina</label>
                           		<div class="col-sm-8">
                           			<select name="age" id="selector3">
-                          			   <option value=" - 18"> - 18</option>
+                          			   <option value="-18">-18</option>
                           			   <option value="19-25">19-25</option>
                           			   <option value="26-35">26-35</option>
                           			   <option value="36-50">36-50</option>
-                          			   <option value="50 -">50 -</option>
+                          			   <option value="50-">50-</option>
                           			</select>
                           		</div>
                           	    </div>
@@ -169,7 +168,7 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                           <button href="#" type="button" id="refreshModal" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
+                           <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
                         </div>
                      </div>
                   </div>
@@ -184,18 +183,18 @@
                         </div>
                         <div class="modal-body">
                         <div class="textal">
-                       Portal za liste čekanja je javno dostupan web portal za pretraživanje i pregledavanje lista 
-                       čekanja na zahvate u bolnicama. Omogućava Vam jedinstveno i transparentno mjesto za pretraživanje 
+                       Portal za liste čekanja je javno dostupan web portal za pretraživanje i pregledavanje lista
+                       čekanja na zahvate u bolnicama. Omogućava Vam jedinstveno i transparentno mjesto za pretraživanje
                        i pregledavanje lista čekanja za lakše odrađivanje zahvata i pronalaska optimalne ustanove. <br/> <br/>
                        Opcije pretraživanja su : prema prvom slobodnom terminu, najbližoj ustanovi, najbolje ocijenjenoj
-                       ustanovi te rang. <br/> <br/> Opcija prema prvom slobodnom terminu prikazat će Vam prve slobodne termine 
-                       uzimajući u obzir sve dostupne ustanove. Za opciju prema najbližoj ustanovi potrebno je upisati 
-                       adresu kako bi se prema adresi pronašle najbliže ustanove. Ukoliko izaberete opciju najbolje ocijenjene 
-                       ustanove možete pretraživati prema različitim opcijama evaluacije: ukupno zadovoljstvo pacijenata, 
-                       profesionalnost osoblja te kvaliteta prostora. Rang je posebna opcija pretraživanja koja se temelji na 
-                       algoritmu za izračunavanje najbolje opcije, za ovu opciju opcionalno je upisati svoju adresu. <br/> <br/>
-                       Pregled stanja Vam omogućava pregled prvih slobodnih termina za pojedini zahvat, za pojedinu ustanovu te za 
-                       pojedini tip zahvata. <br/> <br/> Molim Vas da nakon obavljenog zahvata na ovoj stranici anonimno ocijenite 
+                       ustanovi te rang. <br/> <br/> Opcija prema prvom slobodnom terminu prikazat će Vam prve slobodne termine
+                       uzimajući u obzir sve dostupne ustanove. Za opciju prema najbližoj ustanovi potrebno je upisati
+                       adresu kako bi se prema adresi pronašle najbliže ustanove. Ukoliko izaberete opciju najbolje ocijenjene
+                       ustanove možete pretraživati prema različitim opcijama evaluacije: ukupno zadovoljstvo pacijenata,
+                       profesionalnost osoblja te kvaliteta prostora. Rang je posebna opcija pretraživanja koja se temelji na
+                       algoritmu za izračunavanje najbolje opcije, za ovu opciju je također potrebno upisati svoju adresu. <br/> <br/>
+                       Pregled stanja Vam omogućava pregled prvih slobodnih termina za pojedini zahvat, za pojedinu ustanovu te za
+                       pojedini tip zahvata. <br/> <br/> Molim Vas da nakon obavljenog zahvata na ovoj stranici anonimno ocijenite
                        zadovoljstvo usluge i tako pridonesete kvaliteti pretraživanja.
                         </div>
                         </div>
@@ -261,7 +260,7 @@
                   <figcaption>
                      <form id ="forma1" method="POST">
                         <p> UNESITE ZAHVAT: </p>
-                        <input id="tags" class = "typeahead tt query" autocomplete = "off" type="search" name="item" required>
+                        <input id="tags" class = "typeahead tt query" autocomplete = "off" type ="text" type="search" name="item" required>
                         <br/>
                         <p> ODABERITE NAČIN PRETRAŽIVANJA: </p>
                         <select id="selector" class = "typeahead tt query" name="item1" type ="text">

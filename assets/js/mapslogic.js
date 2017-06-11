@@ -11,36 +11,60 @@ function myMap() {
 //console.log(functions.adrese);
 var markers = [];
 function codeAddress() {
+
   if ( $("#maps-link").text() == "PRIKAŽI NA KARTI" ){
 
 //map.removeOverlay(marker);
   $(document).ready(function(){
 
-
-  var mark = document.getElementById('mark').innerHTML;
+    var mark = document.getElementById('mark').innerHTML;
+    var nazivUstanove = document.getElementById('nazivUstanove').innerHTML;
   });
 
     let allAddresses = [];
+    let allNazivs = [];
+    console.log("TREBALE BI BIT USTANOVE: " + nazivUstanove)
     for(var i=0;i<mark.length;i++){
-    console.log(jQuery(mark[i]).text().split(": ")[1]);
-    allAddresses.push(jQuery(mark[i]).text().split(": ")[1]);
+      allAddresses.push(jQuery(mark[i]).text().split(": ")[1]);
+      //allNazivs.push(jQuery(nazivUstanove[i]).text());
+    }
+    var allLabels =[];
+    for(var i=0;i<nazivUstanove.length;i++){
+    //  console.log(jQuery(label[i]).text());
+      allLabels.push(jQuery(nazivUstanove[i]).text());
+    }
 
-  }
-    // mark.forEach(function(element){
-    //   console.log(element.innerHTML);
-    // })
-    //var address = ["Kaniška 111, 53000 Gospic","Željka Selingera bb, 48000 Koprivnica"];
-    //var adres="Željka Selingera bb, 48000 Koprivnica";
+
     for(var i=0;i<allAddresses.length;i++){
-    geocoder.geocode( { 'address':allAddresses[i]}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-      //  map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
+      //TOODOO: Uredit div za markere
+      let infoContent = '<div id="content">'+
+            '<div id="siteNotice">'+
+            ''+allLabels[i]+''+
+            '</div>'+
+            '</div>'
 
-        markers.push(marker);
+      geocoder.geocode( { 'address':allAddresses[i]}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+        //  map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+
+
+          console.log(infoContent)
+          marker.info = new google.maps.InfoWindow({
+            content: infoContent
+          });
+
+          markers.push(marker);
+          google.maps.event.addListener(marker, 'click', function() {
+                    //alert(address);  //use alert to debug address
+                    map.setZoom(14);
+                    map.setCenter(marker.getPosition());
+                    marker.info.open(map, marker);
+
+                });
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
@@ -51,10 +75,6 @@ function codeAddress() {
 }else if ( $("#maps-link").text() == "ZATVORI" ){
   allAddresses = [];
   DeleteMarkers();
-
-
-
-
 }
   }
   function DeleteMarkers() {
@@ -65,7 +85,6 @@ function codeAddress() {
        }
        markers = [];
    };
-
 
 
 $("#menu-double").on('click', function () {

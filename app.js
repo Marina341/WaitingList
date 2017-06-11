@@ -35,7 +35,7 @@ app.get('/naziv',urlencodedParser, function(req, res){
 		console.log("ja sam if");
 		console.log(req.query.itemstanje7);
 
-db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE IME= '"+req.query.itemstanje7+"';",
+	db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE IME= '"+req.query.itemstanje7+"';",
 
 	function(err,rows){
 		if(err) throw err
@@ -79,6 +79,7 @@ db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODN
 			})
 		}
 });
+
 app.get('/', function(req, res){
   res.render('index');
 });
@@ -113,7 +114,7 @@ app.post('/search-zahvati-priv',urlencodedParser,function(req,res){
       console.log("jel ima iceg: "+UstInp);
 
       res.send({UstInp:UstInp});
-});
+})
 
 app.get('/search-zahvatiii',urlencodedParser,function(req,res){
   //uinp=['OB Gospic'];
