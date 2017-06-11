@@ -16,7 +16,7 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script  type="text/javascript" src="typeahead.min.js"></script>
+      <script  type="text/javascript" src="typeahead.bundle.js"></script>
    </head>
    <body>
       <div id="wrapper">
@@ -71,7 +71,8 @@
                           	   <div class="form-group">
                           	      <label class ="control-label col-sm-3">Odaberite zahvat<span class="star">*</span></label>
                           		<div class="col-sm-8" style="width:300px">
-                          	      <input action="/search-zahvati-priv" method="POST" name="zahvatInp" id="zInp" style="width:150%" class = "typeahead tt query" autocomplete = "off" type="search" required>
+                          	      <input href="#myModal" action="/search-zahvati-priv" method="POST" name="zahvatInp" id="zInp" style="width:150%" class = "typeahead tt query" autocomplete = "off" required>
+
                           		</div>
                           	    </div>
                           	   <div class="form-group">
@@ -168,7 +169,7 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
+                           <button href="#" type="button" id="refreshModal" class="btn btn-default" data-dismiss="modal"> Zatvori </button>
                         </div>
                      </div>
                   </div>
@@ -252,7 +253,7 @@
                   <figcaption>
                      <form id ="forma1" method="POST">
                         <p> UNESITE ZAHVAT: </p>
-                        <input id="tags" class = "typeahead tt query" autocomplete = "off" type ="text" type="search" name="item" required>
+                        <input id="tags" class = "typeahead tt query" autocomplete = "off" type="search" name="item" required>
                         <br/>
                         <p> ODABERITE NAČIN PRETRAŽIVANJA: </p>
                         <select id="selector" class = "typeahead tt query" name="item1" type ="text">

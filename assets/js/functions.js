@@ -103,16 +103,6 @@ $(document).ready(function(){
       }
       });
     });
-
-    $('#zInp').click(function () {
-      var ustanovaInp = $("#uInp").val();
-          $.post('/search-zahvati-priv',{ustanovaInp:ustanovaInp},function(data) {
-              if(data === 'done') {
-                console.log('ajax post ustanove uspio!');
-              }
-          });
-      });
-
 });
 
 function kliki () {
@@ -176,29 +166,102 @@ $( ".rating-star" ).on("click", function () {
 
 // Autocomplete, svi na stranici:
 $(document).ready(function(){
+  var zahvati = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 100,
+      remote: {
+          url: "http://localhost:8080/search-zahvati?key=%QUERY",
+          wildcard: "%QUERY",
+          filter: function (results) {
+              return results;
+          },
+          cache: false
+      }
+  });
+  zahvati.initialize();
+  var ustanove = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 100,
+      remote: {
+          url: "http://localhost:8080/search-ustanove?key=%QUERY",
+          wildcard: "%QUERY",
+          filter: function (results) {
+              return results;
+          },
+          cache: false
+      }
+  });
+  ustanove.initialize();
+
     $('#tags').typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1
+    },
+    {
         name: 'zahvati',
-        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
-        limit: 100
+        source: zahvati.ttAdapter()
     });
+
     $('#uInp').typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1
+    },
+    {
         name: 'ustanove',
-        remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
-        limit: 100
+        source: ustanove.ttAdapter()
     });
-    $('#zInp').typeahead({
-        name: 'zahvatiii',
-        remote: 'http://localhost:8080/search-zahvatiii?key=%QUERY',
-        limit: 100
-    });
+
     $('#sel_stanja7').typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1
+    },
+    {
         name: 'zahvati',
-        remote: 'http://localhost:8080/search-zahvati?key=%QUERY',
-        limit: 100
+        source: zahvati.ttAdapter()
     });
+
     $('#sel_stanja9').typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1
+    },
+    {
         name: 'ustanove',
-        remote: 'http://localhost:8080/search-ustanove?key=%QUERY',
-        limit: 100
+        source: ustanove.ttAdapter()
     });
+
+    $('#zInp').focus(function () {
+      ustanovaInp = $("#uInp").val();
+          $.post('/search-zahvati-priv',{ustanovaInp:ustanovaInp},function(data) {
+          });
+      });
+      var zahvatiOcjene = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.obj.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          remote: {
+              url: "http://localhost:8080/search-zahvatiii?key=%QUERY",
+              wildcard: "%QUERY",
+              filter: function (results) {
+                  return results;
+              },
+              cache: false
+          }
+      });
+      zahvatiOcjene.initialize();
+
+      $('#zInp').typeahead({
+          hint: false,
+          highlight: true,
+          minLength: 1,
+      },
+      {
+          name: 'zahvatiii',
+          source: zahvatiOcjene.ttAdapter(),
+          limit: 10
+      });
 });
