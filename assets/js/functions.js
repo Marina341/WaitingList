@@ -38,7 +38,7 @@ $(document).ready(function(){
           results.forEach(function(element) {
             let html = "<div class='box'>";
             html += "<div  style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
-            html += "<p id = 'nazivUstanove' id = 'naziv-ustanove'>"+element.NAZIV +"</p>";
+            html += "<p id = 'nazivUstanove' class = 'naziv-ustanove'>"+element.NAZIV +"</p>";
             html += "<div class = 'ustanova'><div id = 'ustanova-info'>";
             html += "<p id='mark'> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
             html += "<p> e-mail: " + element.KONTAKT_EMAIL2 + "</p>";
@@ -87,6 +87,8 @@ $(document).ready(function(){
         }
       });
     });
+
+
 
   // AJAX FORME ZA OCJENJIVANJE
     $('#myform').on('submit', function (event) {

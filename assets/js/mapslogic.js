@@ -37,7 +37,7 @@ function codeAddress() {
 
     for(var i=0;i<allAddresses.length;i++){
       //TOODOO: Uredit div za markere
-      let infoContent = '<div id="content">'+
+      let infoContent = '<div id="content" class="naziv-ustanove" style="font-size: 14px">'+
             '<div id="siteNotice">'+
             ''+allLabels[i]+''+
             '</div>'+
