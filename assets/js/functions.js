@@ -159,6 +159,7 @@ $("#menu-double").on('click', dabli);
   $('#selector').change(function(){
     $('.ocjena').slideUp("slow");
     $('.adresa').slideUp("slow");
+	$('.adresa2').slideUp("slow");
     $('#' + $(this).val()).slideDown("slow");
     if($(this).val() == 2) {
       $("#adr").attr("required", true);
