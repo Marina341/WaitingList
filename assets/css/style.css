@@ -163,7 +163,7 @@ background: #33a6cc;
   border: 5px solid #33a6cc;
   border-radius: 10px;
 /*  font: 16px sans-serif; */
-  height: 40%;
+  display: table;
   width: 100%;
   -webkit-transition: width 2s;
   transition: width 2s;
@@ -172,6 +172,7 @@ background: #33a6cc;
   opacity: 0.7;
   background-color: #f8f8ff;
   position:relative;
+  padding: 30px;
 }
 .box:after {
   z-index: -15;

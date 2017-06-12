@@ -49,7 +49,7 @@
     margin-right: -62.5%;
     overflow-y: hidden;
     overflow-x: auto;
-    background-color: #002533;
+    background-color: #002c3c;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -59,6 +59,8 @@
 #sidebar-content-wrapper {
   overflow: hidden;
   padding: 50px;
+  padding-top: 10px;
+  padding-bottom: 0px;
   width: 100%;
   height: 610px;
 }
@@ -106,7 +108,7 @@
 
 #menu-double, #menu-toggle2  {
   float:left;
-  width:120px;
+  width:160px;
   cursor:pointer;
   color:#33a6cc;
   height: 30px;
@@ -120,10 +122,11 @@
 
 #scroll-box {
     display: inline-block;
-    width: 750px;
-    height: 500px;
+    width: 680px;
+    height: 560px;
     float: left;
-    padding: 15px;
+    padding: 10px;
+    padding-left: 60px;
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -133,7 +136,7 @@
   margin-right: -700px;
   visibility: visible;
   width: 450px;
-  height: 500px;
+  height: 560px;
   float: right;
   background-color: yellow;
 }
@@ -212,16 +215,16 @@
 .naziv-ustanove {
 	font-size: 20px;
   font-weight: bold;
+  width: 60%;
   color: #002533;
-  height: 30px;
-  width:100%;
-  padding: 5px;
+  margin-bottom: 5px;
 }
 
 #ustanova-info {
   font-size: 14px;
   color: green;
-  height: 80%;
+  width: 60%;
+  float: left;
 }
 #ustanova-info p {
   font-size: 12px;
@@ -230,20 +233,18 @@
 }
 
 #rejting-prikaz {
+  margin-top: -5%;
   float: right;
-  width: 35%;
-  height: 100%;
-  padding-top: 10px;
-  padding-left: 10px;
+  width: 30%;
   text-align: center;
 
 }
 
+
 #termin {
-  width: 100%;
-  height: 30px;
-  position: absolute;
-  bottom: 10px;
+  width: 30%;
+  float:right;
   text-align: center;
   color: #33a6cc;
+  margin-top: 10px;
 }

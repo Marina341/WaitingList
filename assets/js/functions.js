@@ -3,8 +3,8 @@ $(document).ready(function(){
       $("#emptyInputAction").on('click',function() {
           $("#uInp").val('');
           $("#zInp").val('');
-          $("#selector3").val('-18');
-          $("#selector2").val('M');
+          $("#selector3").val('');
+          $("#selector2").val('');
           $(".rating-star").attr("style", "background-position: 0px -16px;");
         });
 
@@ -37,32 +37,38 @@ $(document).ready(function(){
           }else {
           results.forEach(function(element) {
             let html = "<div class='box' id='"+element.NAZIV+"'>";
-            html += "<div  style = 'margin:0 auto; padding:5px; height:60%; width:100%'>";
-            html += "<p id = 'nazivUstanove' class = 'naziv-ustanove'>"+element.NAZIV +"</p>";
-            html += "<div class = 'ustanova'><div id = 'ustanova-info'>";
+
+            html += "<div id = 'nazivUstanove' class = 'naziv-ustanove'>"+element.NAZIV+"</div>";
+            html += "<div id = 'ustanova-info'>";
             html += "<p id='mark'> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
             html += "<p> e-mail: " + element.KONTAKT_EMAIL2 + "</p>";
-            html += "<p> Telefon: " + element.KONTAKT_TELEFON2 + "</p></div></div>";
+            html += "<p> Telefon: " + element.KONTAKT_TELEFON2 + "</p></div>";
             html += "<div id = 'rejting-prikaz'><div>";
             var c;
+            var desc;
             if ($("#selector").val()==='3') {
               if ($("#selector1").val()==='4') {
                  c = (element.UKUPNO_ZADOVOLJSTVO/element.BROJ_UNOSA);
+                 desc = "Ukupno zadovoljstvo ";
                  console.log("UKUPNO ZADOVOLJSTVO: "+c);
              }
              else if ($("#selector1").val()==='5') {
                 c = (element.PROFESIONALNOST_OSOBLJA/element.BROJ_UNOSA);
+                desc = "Osoblje ";
                 console.log("PROF. OSOBLJA: "+c);
              }
              else if ($("#selector1").val()==='6') {
                 c = (element.KVALITETA_PROSTORA/element.BROJ_UNOSA);
+                desc = "Kvaliteta prostora ";
                 console.log("KVALITETA PROSTORA: "+c);
              }
            }
            else {
               c = ((element.KVALITETA_PROSTORA+element.PROFESIONALNOST_OSOBLJA+element.UKUPNO_ZADOVOLJSTVO)/(3*element.BROJ_UNOSA));
+              desc = "Prosječna ocjena ";
               console.log("PROSJEK SVIH OCJENA: "+c);
            }
+           html += "<strong><p style='margin-bottom:2px;color: #33a6cc'> "+desc+" </p>";
             var j;
             for( j=0;j<c.toFixed(0);j++ ) {
               html += "<i class='fa fa-star' aria-hidden='true' style='color:#ffff00'></i>";
@@ -71,9 +77,9 @@ $(document).ready(function(){
               html += "<i class='fa fa-star' aria-hidden='true' style='color:gray'></i>";
             }
             html += "&nbsp&nbsp<strong>" + c.toFixed(1) + "</strong></div>";
-            html += "<p><strong>(" + element.BROJ_UNOSA + " ocjena) </strong></p></div></div>";
-            html += "<div id = 'termin'><strong> Prvi slobodni termin: &nbsp &nbsp";
-            html += "<span style='border:solid;border-color:#002533;border-radius:10px;background-color:#002533;color:#f8f8ff;font-size:16px'>" + element.datum + " " + element.vrijeme + "</span>";
+          /*  html += "<p><strong>(" + element.BROJ_UNOSA + " ocjena) </strong></p>"; */
+            html += "</div><div id = 'termin'><strong><p> Prvi slobodni termin </p>";
+            html += "<span style='margin-top:10px;border:solid;border-color:#002533;border-radius:10px;background-color:#002533;color:#f8f8ff;font-size:16px'>" + element.datum + " " + element.vrijeme + "</span>";
             html += "</strong></div></div>";
             let div = document.getElementById("scroll-box");
             div.innerHTML = div.innerHTML + html;
