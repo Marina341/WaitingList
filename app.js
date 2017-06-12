@@ -46,11 +46,10 @@ app.get('/naziv',urlencodedParser, function(req, res){
 		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME)}
 		res.render('pregledstanja',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr});
 	})
-	}
-	 	 else if (req.query.itemstanje==8){
+	}else if (req.query.itemstanje==8){
 		console.log("ja sam else if");
 		console.log(req.query.itemstanje8);
-		db.connection.query("SELECT DISTINCT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 2500;",
+		db.connection.query("SELECT *, IF (SLOBODNI_TERMIN, DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.'), '  ') AS datum, IF (SLOBODNI_TERMIN, time_format(SLOBODNI_TERMIN, '%H:%i'), ' ') AS vrijeme FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 2500;",
 	function(err,rows){
 		if(err) throw err
 		navivust = [];
@@ -61,8 +60,28 @@ app.get('/naziv',urlencodedParser, function(req, res){
 		zahvatid =[];
 		ustanovaid =[];
 		for(x in rows){navivust.push(rows[x].NAZIV);termin.push(rows[x].datum);terminvr.push(rows[x].vrijeme);imence.push(rows[x].IME); nazivtipa.push(rows[x].NAZIVTIPA);zahvatid.push(rows[x].ZAHVAT_ID); ustanovaid.push(rows[x].USTANOVA_ID)}
-		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa, zahvatid:zahvatid, ustanovaid:ustanovaid});
-			})
+		db.connection.query("SELECT DISTINCT USTANOVA_ID AS USTANOVICA FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 2500;",
+		function(err,rows){
+		
+		if(err) throw err
+		ustanovica =[];
+		
+		for(var i = 0;i<rows.length;i++){
+			ustanovica.push(rows[i].USTANOVICA);
+		}
+		db.connection.query("SELECT DISTINCT NAZIV AS NAZIVUST FROM mydb.bo WHERE TIP_ZAHVATA_ID ='"+req.query.itemstanje8+"'limit 2500;",
+		function(err,rows){
+		
+		if(err) throw err
+		nazivustanove =[];
+		for(var i = 0;i<rows.length;i++){
+			nazivustanove.push(rows[i].NAZIVUST);
+		}
+		
+		res.render('pregledstanjapotipu',{navivust:navivust,termin:termin,imence:imence, terminvr:terminvr, nazivtipa:nazivtipa, zahvatid:zahvatid, ustanovaid:ustanovaid, ustanovica:ustanovica, nazivustanove:nazivustanove});
+		}) 
+		}) 
+		})
 		}
 	else if (req.query.itemstanje==9){
 		console.log("ja sam else if");
