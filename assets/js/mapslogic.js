@@ -29,6 +29,7 @@ $(document).ready(function(){
     let adrU = [];
     let allAddresses = [];
     let allNazivs = [];
+    if(jQuery(adr).val() != ""){
     adrU.push(jQuery(adr).val());
     var pinColor = "ADDE63";
    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
@@ -56,6 +57,7 @@ $(document).ready(function(){
   }
   };
   });
+}
 
     //console.log("TREBALE BI BIT USTANOVE: " + nazivUstanove)
     for(var i=0;i<mark.length;i++){
