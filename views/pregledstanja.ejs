@@ -16,16 +16,19 @@
    <div class="tablica-stanja">
    <div class="box">
    <div class="table-responsive">
-   <table class="table" class="text-center">
-   <tr  class="info"><th>Zahvat</th>
-   <% for(var i=0;i<navivust.length;i++) {%>
-   <th> <%= navivust[i] %> </th>
-   <% }%>
+   <table class="table" class="text-center" style="table-layout:fixed;word-wrap:break-word">
+
+   <tr  class="info">
+     <th>Ustanova</th>
+     <th>Slobodni termin</th>
    </tr>
-   <tr class="active"><td>  <%= imence[1] %> </td>
-   <% for(var y=0;y<navivust.length;y++) {%>
-   <td> <%= termin[y] %> <%=terminvr[y] %> </td>
-   <% }%>
+
+     <% for(var y=0;y<navivust.length;y++) {%>
+     <tr class="active">
+       <td> <%= navivust[y] %> </td>
+       <td> <%= termin[y] %> <%=terminvr[y] %> </td>
+     </tr>
+     <% }%>
    </tr>
 
    </table>

@@ -12,14 +12,14 @@
 </head>
 <body class="bodyOne">
 <h3> Pregled stanja po tipu zahvata: <%= nazivtipa[1] %> </h3>
-   <div class="tablica-stanja">
+   <div class="tablica-stanja" style="width:90%">
    <div class="box">
    <div class="table-responsive">
  <table class="table" class="text-center">
- 
+
   <!--prvi red: ispis naziva ustanova -->
- 
-   <tr class="info"> <th> Tip zahvata: <%= nazivtipa[1] %></th> <th> <%= navivust[0] %></th>
+
+   <tr class="info"> <th> Zahvat </th> <th> <%= navivust[0] %></th>
 
    <% for(var k=1; k<nazivustanove.length; k++) {%>
 		<th> <%= nazivustanove[k] %> </th>
@@ -27,25 +27,25 @@
    </tr>
 
     <tr>  <td> <%= imence[0] %> </td> <td> <%= termin[0] %> <%= terminvr[0] %></td>
-  
+
   <% for(var i=1; i<navivust.length; i++) {%>
-			
+
 				  <% if(zahvatid[i]==zahvatid[i-1]) { %>
 								<% for(var y=0; y<ustanovica.length; y++) {%>
-				  
+
 									<% if (ustanovaid[i] == ustanovica[y]){%>
-						
+
 									<td> <%= termin[i] %> <%= terminvr[i] %></td>
-									<% } %>	
-								<% } %>	
-								
+									<% } %>
+								<% } %>
+
 				<% } else { %>
-						</tr> <tr> <td> <%= imence[i] %> </td> 
-				<% } %>		
+						</tr> <tr> <td> <%= imence[i] %> </td>
+				<% } %>
 	<% }%>
- 
+
    </tr> </table>
-   
+
    <tr class="warning"> <button type="button" class="btn btn-info btn-lg" onclick="exportTableToCSV('members.csv')"> Izvezi podatke (.CSV) </button> </tr>
 </div>
 </div>

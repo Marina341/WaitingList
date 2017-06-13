@@ -16,19 +16,22 @@
    <div class="tablica-stanja">
    <div class="box">
    <div class="table-responsive">
-   <table class="table" class="text-center">
-   <tr  class="info"><th>Ustanova</th>
-   <% for(var i=0;i<imence.length;i++) {%>
-   <th> <%= imence[i] %> </th>
-   <% }%>
-   </tr>
-   <tr class="active"><td>  <%= navivust[1] %> </td>
-   <% for(var y=0;y<imence.length;y++) {%>
-   <td> <%= termin[y] %> <%=terminvr[y] %> </td>
-   <% }%>
-   </tr>
+     <table class="table" class="text-center" style="table-layout:fixed;word-wrap:break-word">
 
-   </table>
+     <tr  class="info">
+       <th>Zahvat</th>
+       <th>Slobodni termin</th>
+     </tr>
+
+       <% for(var y=0;y<navivust.length;y++) {%>
+       <tr class="active">
+         <td> <%= imence[y] %> </td>
+         <td> <%= termin[y] %> <%=terminvr[y] %> </td>
+       </tr>
+       <% }%>
+     </tr>
+
+     </table>
  <tr class="warning"> <button type="button" class="btn btn-info btn-lg" onclick="exportTableToCSV('members.csv')"> Izvezi podatke (.CSV) </button> </tr>
    </div>
 </div>
