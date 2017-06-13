@@ -4,29 +4,29 @@ var alg = require('./nearestDistance');
 var reloadTable = function(res,string) {
 console.log(string[0]+string[1]);
   if(string[1] === '1'){
-var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2  FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY SLOBODNI_TERMIN ASC limit 10";
+var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2  FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY SLOBODNI_TERMIN ASC limit 10";
 }else if(string[1]==='2'){
 
-  var choice = "SELECT *,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID AND ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' AND KONTAKT_ADRESA LIKE '%"+string[3]+"%' ORDER BY SLOBODNI_TERMIN ASC limit 10";
+  var choice = "SELECT *,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID AND ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' AND KONTAKT_ADRESA LIKE '%"+string[3]+"%' ORDER BY SLOBODNI_TERMIN ASC limit 10";
 }
 else if(string[1]==='3') {
       if (string[2]==='4') {
-        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY UKUPNO_ZADOVOLJSTVO DESC limit 10";
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY UKUPNO_ZADOVOLJSTVO DESC limit 10";
       }
       else if (string[2]==='5'){
-        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY PROFESIONALNOST_OSOBLJA DESC limit 10";
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY PROFESIONALNOST_OSOBLJA DESC limit 10";
       }
       else {
-        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY KVALITETA_PROSTORA DESC limit 10";
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY KVALITETA_PROSTORA DESC limit 10";
       }
 }
-  
+
   else if(string[1]==='4') {
       if (string[3]!='0') {
-        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY UKUPNO_ZADOVOLJSTVO DESC limit 20";
+        var choice = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-05-01' AND AND SLOBODNI_TERMIN IS NOT NULL ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+string[0]+"' ORDER BY UKUPNO_ZADOVOLJSTVO DESC limit 20";
       }
       else {
-       	var choice ="SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'<nema>',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'<nema>',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'<nema>',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-06-015' AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID' and kzn.IME='"+string[0]+"' ORDER BY case when SLOBODNI_TERMIN-NOW()<20 THEN SLOBODNI_TERMIN END DESC, case when (UKUPNO_ZADOVOLJSTVO/BROJ_UNOSA)=5 THEN UKUPNO_ZADOVOLJSTVO END DESC, case when SLOBODNI_TERMIN-NOW()<40 THEN SLOBODNI_TERMIN END DESC, case when (UKUPNO_ZADOVOLJSTVO/BROJ_UNOSA)<5 THEN UKUPNO_ZADOVOLJSTVO END DESC;";
+       	var choice ="SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'<nema>',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'<nema>',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'<nema>',KONTAKT_EMAIL) as KONTAKT_EMAIL2 FROM ustanove,podaci,kzn, ocijena WHERE DATE(SLOBODNI_TERMIN) > '2017-06-015' AND SLOBODNI_TERMIN IS NOT NULL AND ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID' and kzn.IME='"+string[0]+"' ORDER BY case when SLOBODNI_TERMIN-NOW()<20 THEN SLOBODNI_TERMIN END DESC, case when (UKUPNO_ZADOVOLJSTVO/BROJ_UNOSA)=5 THEN UKUPNO_ZADOVOLJSTVO END DESC, case when SLOBODNI_TERMIN-NOW()<40 THEN SLOBODNI_TERMIN END DESC, case when (UKUPNO_ZADOVOLJSTVO/BROJ_UNOSA)<5 THEN UKUPNO_ZADOVOLJSTVO END DESC;";
 	 }
 }
  mysql.sendQuery(choice, function(rows,fields)
@@ -64,8 +64,8 @@ var getIt = function(res, zahvat, address){
     provider: 'google'
   }
   var geocoder = NodeGeocoder(options);
- 
-  // Using callback 
+
+  // Using callback
   geocoder.geocode(address, function(err, response) {
     if(err) res.send("Adresa nije pronađena");
     userAddress = {
@@ -75,11 +75,11 @@ var getIt = function(res, zahvat, address){
 
     var getAllBitches = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2  FROM ustanove,podaci,kzn, ocijena WHERE  ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+ zahvat +"'";
     mysql.sendQuery(getAllBitches, function(rows){
-      //console.log(rows, userAddress)  
+      //console.log(rows, userAddress)
       alg.nearestDistance(res, userAddress, rows);
     });
-    
-    
+
+
   });
 };
 
