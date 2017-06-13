@@ -37,7 +37,6 @@ $(document).ready(function(){
           }else {
           results.forEach(function(element) {
             let html = "<div class='box' id='"+element.NAZIV+"'>";
-
             html += "<div id = 'nazivUstanove' class = 'naziv-ustanove'>"+element.NAZIV+"</div>";
             html += "<div id = 'ustanova-info'>";
             html += "<p id='mark'> Adresa: " + element.KONTAKT_ADRESA2 + "</p>";
@@ -54,7 +53,7 @@ $(document).ready(function(){
              }
              else if ($("#selector1").val()==='5') {
                 c = (element.PROFESIONALNOST_OSOBLJA/element.BROJ_UNOSA);
-                desc = "Osoblje ";
+                 desc = "Osoblje ";
                 console.log("PROF. OSOBLJA: "+c);
              }
              else if ($("#selector1").val()==='6') {
@@ -77,7 +76,7 @@ $(document).ready(function(){
               html += "<i class='fa fa-star' aria-hidden='true' style='color:gray'></i>";
             }
             html += "&nbsp&nbsp<strong>" + c.toFixed(1) + "</strong></div>";
-          /*  html += "<p><strong>(" + element.BROJ_UNOSA + " ocjena) </strong></p>"; */
+            /*  html += "<p><strong>(" + element.BROJ_UNOSA + " ocjena) </strong></p>"; */
             html += "</div><div id = 'termin'><strong><p> Prvi slobodni termin </p>";
             html += "<span style='margin-top:10px;border:solid;border-color:#002533;border-radius:10px;background-color:#002533;color:#f8f8ff;font-size:16px'>" + element.datum + " " + element.vrijeme + "</span>";
             html += "</strong></div></div>";

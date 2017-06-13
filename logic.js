@@ -1,4 +1,5 @@
 var mysql = require('./database');
+var alg = require('./nearestDistance');
 
 var reloadTable = function(res,string) {
 console.log(string[0]+string[1]);
@@ -54,7 +55,37 @@ var rateIt = function(res,ocjene){
   });
 };
 
+var getIt = function(res, zahvat, address){
+  console.log(zahvat, address)
+  var scrapped;
+  var userAddress;
+  var NodeGeocoder = require('node-geocoder');
+  var options = {
+    provider: 'google'
+  }
+  var geocoder = NodeGeocoder(options);
+ 
+  // Using callback 
+  geocoder.geocode(address, function(err, response) {
+    if(err) res.send("Adresa nije pronađena");
+    userAddress = {
+      lat: response[0].latitude,
+      lng: response[0].longitude
+    };
+
+    var getAllBitches = "SELECT * ,DATE_FORMAT(SLOBODNI_TERMIN, '%d.%m.%Y.') AS datum, time_format(SLOBODNI_TERMIN, '%H:%i') AS vrijeme, IF(KONTAKT_ADRESA IS NULL,'nije dostupno',KONTAKT_ADRESA) AS KONTAKT_ADRESA2, IF(KONTAKT_TELEFON IS NULL,'nije dostupno',KONTAKT_TELEFON) as KONTAKT_TELEFON2, IF(KONTAKT_EMAIL IS NULL,'nije dostupno',KONTAKT_EMAIL) as KONTAKT_EMAIL2  FROM ustanove,podaci,kzn, ocijena WHERE  ustanove.USTANOVA_ID=podaci.USTANOVA_ID AND kzn.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.ZAHVAT_ID=podaci.ZAHVAT_ID and ocijena.USTANOVA_ID = ustanove.USTANOVA_ID and kzn.IME='"+ zahvat +"'";
+    mysql.sendQuery(getAllBitches, function(rows){
+      //console.log(rows, userAddress)  
+      alg.nearestDistance(res, userAddress, rows);
+    });
+    
+    
+  });
+};
+
+
 module.exports = {
   reloadTable: reloadTable,
-  rateIt:rateIt
+  rateIt:rateIt,
+  getIt:getIt
 };

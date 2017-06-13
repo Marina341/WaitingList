@@ -16,12 +16,15 @@ app.post('/',urlencodedParser, function(req, res) {
   console.log(" SERVER POST")
   //var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.spol,req.body.age,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3];
   var inputi=[req.body.item, req.body.item1, req.body.item2,req.body.item3];
-  console.log(inputi);
-//  console.log(ocjene);
-    logic.reloadTable(res,inputi);
-  //  logic.rateIt(res,ocjene);
-
+	
+	if (req.body.item1 === '2') {
+			logic.getIt(res, req.body.item, req.body.item3);
+	}
+	else {
+		logic.reloadTable(res,inputi);
+	}
 });
+
 app.post('/rate',urlencodedParser, function(req, res) {
   console.log(" SERVER POST")
   var ocjene=[req.body.ustanovaInp,req.body.zahvatInp,req.body.rating_input_1,req.body.rating_input_2,req.body.rating_input_3,req.body.spol,req.body.age,];
